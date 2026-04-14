@@ -3,86 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahad Matlaq | Portfolio Excellence</title>
+    <title>Ahad Matlaq | Professional Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&family=Playfair+Display:ital,wght@1,400;1,700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* MASTER THEME CONFIGURATION 
-        */
         :root {
-            --bg-deep: #08080c;
-            --bg-card: #111119;
+            --bg-deep: #0a0a0f;
             --accent-purple: #9d4edd;
-            --accent-glow: rgba(157, 78, 221, 0.4);
-            --text-white: #ffffff;
-            --text-gray: #8e8ea8;
-            --text-dark-gray: #444452;
-            --border-line: 1px solid rgba(157, 78, 221, 0.12);
-            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --text-main: #ffffff;
+            --text-dim: #9494b8;
+            --card-border: 1px solid rgba(157, 78, 221, 0.15);
             --font-accent: 'Playfair Display', serif;
-            --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* RESET & CORE STYLES */
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: var(--bg-deep);
-            color: var(--text-white);
-            font-family: var(--font-main);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* INTERACTIVE STARFIELD BACKGROUND */
+        /* --- THE STARFIELD BACKGROUND --- */
         #particles-js {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* NAVIGATION BAR */
+        .main-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2.5rem 10%;
+            padding: 2rem 8%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(8, 8, 12, 0.85);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--accent-purple); text-decoration: none; letter-spacing: 2px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--text-white);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .logo span { color: var(--accent-purple); }
-
-        .nav-links { display: flex; list-style: none; gap: 35px; }
-        .nav-links a {
-            color: var(--text-gray);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: var(--transition-smooth);
-        }
-
-        .nav-links a:hover { color: var(--accent-purple); transform: translateY(-2px); }
-
-        /* HERO AREA - FIRST IMPACT */
+        /* --- HERO --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -90,261 +70,92 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding-top: 80px;
         }
+        .hero-tag { font-family: var(--font-accent); font-style: italic; color: var(--text-dim); font-size: 1.2rem; margin-bottom: 1rem; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -2px; }
+        .hero-sub { color: var(--text-dim); letter-spacing: 4px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 3rem; }
+        
+        .btn-group { display: flex; gap: 15px; }
+        .btn-p { background: var(--accent-purple); color: white; padding: 14px 35px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.85rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(157, 78, 221, 0.2); }
+        .btn-o { border: 1px solid rgba(255,255,255,0.1); color: white; padding: 14px 35px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+        .btn-p:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(157, 78, 221, 0.4); }
 
-        .hero-tag {
-            font-family: var(--font-accent);
-            font-style: italic;
-            color: var(--accent-purple);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s forwards 0.2s;
-        }
+        /* --- SECTION BASE --- */
+        section { padding: 120px 10%; max-width: 1400px; margin: 0 auto; }
+        .sec-header { display: flex; align-items: center; gap: 15px; margin-bottom: 60px; }
+        .sec-num { color: var(--accent-purple); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        .sec-title { font-size: 3rem; font-family: var(--font-accent); font-weight: 400; }
+        .sec-title span { font-style: italic; color: var(--text-dim); font-weight: 200; }
 
-        .hero h1 {
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 800;
-            line-height: 0.9;
-            margin-bottom: 1rem;
-            letter-spacing: -3px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s forwards 0.4s;
-        }
-
-        .hero-sub {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 1s forwards 0.6s;
-        }
-
-        .hero-desc {
-            max-width: 650px;
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            margin-bottom: 3.5rem;
-            opacity: 0;
-            animation: fadeInUp 1s forwards 0.8s;
-        }
-
-        /* BUTTONS WITH GLOW */
-        .btn-container { display: flex; gap: 20px; opacity: 0; animation: fadeInUp 1s forwards 1s; }
-
-        .btn {
-            padding: 16px 35px;
-            border-radius: 2px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            transition: var(--transition-smooth);
-            text-transform: uppercase;
-        }
-
-        .btn-fill {
-            background: var(--accent-purple);
-            color: white;
-            box-shadow: 0 10px 30px var(--accent-glow);
-        }
-
-        .btn-fill:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px var(--accent-purple);
-        }
-
-        .btn-outline {
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-        }
-
-        .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: white; }
-
-        /* SECTION STYLING */
-        section { padding: 140px 10%; max-width: 1400px; margin: 0 auto; }
-
-        .sec-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 70px;
-        }
-
-        .sec-num {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-purple);
-            font-size: 1rem;
-        }
-
-        .sec-title {
-            font-family: var(--font-accent);
-            font-size: 3.5rem;
-            font-weight: 400;
-        }
-
-        .sec-title span { font-style: italic; color: var(--text-gray); font-weight: 200; }
-
-        /* TWO COLUMN LAYOUT (EXPERIENCE/ABOUT) */
-        .split-layout {
+        /* --- SPLIT GRID --- */
+        .split-grid {
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 80px;
-            align-items: start;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
         }
+        .bio-p { font-size: 1.2rem; color: var(--text-dim); line-height: 1.8; }
+        .bio-p b { color: white; }
 
-        .bio-text { font-size: 1.25rem; color: var(--text-gray); }
-        .bio-text b { color: var(--text-white); font-weight: 600; }
-        .bio-text span { color: var(--accent-purple); }
-
-        /* LIST ITEMS (CV STYLE) */
-        .cv-container {
-            border: var(--border-line);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .cv-item {
-            padding: 35px;
-            background: var(--bg-deep);
-            border-bottom: 1px solid rgba(157, 78, 221, 0.08);
-            display: flex;
-            justify-content: space-between;
-            transition: var(--transition-smooth);
-        }
-
-        .cv-item:hover { background: #12121c; padding-left: 45px; }
-
-        .cv-info h4 { font-size: 1.2rem; margin-bottom: 8px; }
-        .cv-info p { color: var(--text-gray); font-size: 0.9rem; }
-        .cv-info .date { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent-purple); margin-top: 10px; display: block; }
-
-        .cv-tag {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border: 1px solid var(--accent-purple);
-            height: fit-content;
-            color: var(--accent-purple);
-            letter-spacing: 1px;
-        }
-
-        /* YAQZA PROJECT SHOWCASE */
-        .project-detailed {
-            background: var(--bg-card);
-            border: var(--border-line);
-            padding: 60px;
-            margin-top: 40px;
-            border-radius: 8px;
-        }
-
-        .project-meta { display: flex; gap: 15px; margin: 25px 0; }
-        .p-tag {
-            font-size: 0.7rem;
-            color: var(--text-gray);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 5px 15px;
-            text-transform: uppercase;
-        }
-
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .gallery-box {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-box:hover { transform: scale(1.02); border-color: var(--accent-purple); }
-
-        .gallery-box img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            opacity: 0.8;
-            transition: var(--transition-smooth);
-        }
-
-        .gallery-box:hover img { opacity: 1; }
-
-        /* SKILLS MATRIX */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-card {
-            padding: 40px;
-            background: rgba(157, 78, 221, 0.02);
-            border: var(--border-line);
-            transition: var(--transition-smooth);
-        }
-
-        .skill-card:hover { background: rgba(157, 78, 221, 0.05); }
-
-        .skill-card h5 { font-size: 1.1rem; margin-bottom: 25px; letter-spacing: 1px; }
-
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .s-tag { font-size: 0.8rem; color: var(--text-gray); }
-
-        /* CONTACT SECTION - THE "GET IN TOUCH" LOOK */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 100px;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            border: var(--border-line);
-        }
-
-        .c-link {
+        /* --- CV LIST CARDS --- */
+        .cv-card-wrap { border: var(--card-border); border-radius: 2px; }
+        .cv-row {
             padding: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            text-decoration: none;
-            color: var(--text-white);
-            border-bottom: 1px solid rgba(157, 78, 221, 0.08);
-            transition: var(--transition-smooth);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.05);
+            transition: 0.4s;
+            background: rgba(255,255,255,0.01);
         }
+        .cv-row:hover { background: rgba(157, 78, 221, 0.05); padding-left: 40px; }
+        .cv-row h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .cv-row p { font-size: 0.8rem; color: var(--text-dim); }
+        .cv-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-purple); margin-top: 10px; display: block; }
+        .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 2px 8px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .c-link:hover { background: rgba(157, 78, 221, 0.05); padding-left: 40px; }
-
-        .c-link .label { font-size: 0.7rem; color: var(--text-dark-gray); text-transform: uppercase; margin-bottom: 5px; }
-        .c-link .val { font-size: 1rem; color: var(--text-gray); }
-
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- SKILLS GRID --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
         }
+        .skill-box {
+            background: rgba(157, 78, 221, 0.03);
+            border: var(--card-border);
+            padding: 40px;
+            border-radius: 4px;
+        }
+        .skill-box h3 { font-family: var(--font-accent); font-style: italic; margin-bottom: 20px; font-weight: 400; }
+        .skill-list { list-style: none; color: var(--text-dim); font-size: 1rem; }
+        .skill-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .skill-list li::before { content: "•"; color: var(--accent-purple); font-weight: bold; }
 
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        /* --- PROJECT YAQZA --- */
+        .project-box { background: #111116; border: var(--card-border); padding: 50px; border-radius: 4px; }
+        .p-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 40px; }
+        .gallery-item { text-align: left; }
+        .gallery-item img { width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; margin-bottom: 15px; }
+        .gallery-item img:hover { transform: scale(1.03); border-color: var(--accent-purple); }
+        .gallery-item h5 { color: var(--accent-purple); font-size: 1rem; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; }
+        .gallery-item p { color: var(--text-dim); font-size: 0.85rem; line-height: 1.5; }
+
+        /* --- CONTACT --- */
+        .contact-list { display: flex; flex-direction: column; border: var(--card-border); }
+        .c-item { padding: 30px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: white; border-bottom: 1px solid rgba(157, 78, 221, 0.05); transition: 0.4s; }
+        .c-item:hover { background: rgba(157, 78, 221, 0.05); padding-left: 40px; }
+        .c-label { font-size: 0.7rem; color: #555; text-transform: uppercase; margin-bottom: 5px; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        footer { padding: 80px 10%; text-align: left; border-top: 1px solid rgba(255,255,255,0.03); display: flex; justify-content: space-between; color: var(--text-dark-gray); font-size: 0.75rem; letter-spacing: 2px; }
+        footer { padding: 50px 10%; text-align: left; border-top: 1px solid rgba(255,255,255,0.02); color: #333; font-size: 0.7rem; letter-spacing: 3px; }
 
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            .split-layout, .contact-grid { grid-template-columns: 1fr; gap: 50px; }
-            .hero h1 { font-size: 4rem; }
+        @media (max-width: 968px) {
+            .split-grid, .skills-container { grid-template-columns: 1fr; gap: 40px; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -352,171 +163,153 @@
 
     <div id="particles-js"></div>
 
-    <nav>
-        <a href="#" class="logo">AM<span>.</span></a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#edu">Education</a></li>
-            <li><a href="#work">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="main-content">
+        <nav>
+            <a href="#" class="logo">AHAD.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <header class="hero">
-        <p class="hero-tag">Welcome to my space</p>
-        <h1>AHAD<br>MATLAQ</h1>
-        <p class="hero-sub">Computer Science & IT Systems Specialist</p>
-        <p class="hero-desc">
-            Passionate about architecting robust IT infrastructures and leveraging SQL intelligence to solve complex data challenges. Based in Tabuk, Saudi Arabia.
-        </p>
-        <div class="btn-container">
-            <a href="Cv ahad1.pdf" target="_blank" class="btn btn-fill">Download CV</a>
-            <a href="#work" class="btn btn-outline">Explore Work →</a>
-        </div>
-    </header>
-
-    <section id="about" class="reveal">
-        <div class="sec-header">
-            <span class="sec-num">01</span>
-            <h2 class="sec-title">About <span>Me</span></h2>
-        </div>
-        <div class="split-layout">
-            <div class="bio-text">
-                <p>I am a <b>Computer Science Specialist</b> driven by the intersection of <span>AI and security</span>. With a strong foundation in software engineering from the <b>University of Tabuk</b>.</p>
-                <br>
-                <p>My core focus is <b>Data Integrity</b> and <b>IT Operations</b>. I believe in building systems that aren't just functional, but intelligently safe for everyone.</p>
+        <header class="hero">
+            <p class="hero-tag">Digital Portfolio</p>
+            <h1>AHAD MATLAQ</h1>
+            <p class="hero-sub">Computer Science • IT Infrastructure • AI Safety</p>
+            <div class="btn-group">
+                <a href="Cv ahad1.pdf" target="_blank" class="btn-p">VIEW CV</a>
+                <a href="Cv ahad1.pdf" download class="btn-o">DOWNLOAD CV</a>
             </div>
-            
-            <div class="cv-container">
-                <div class="cv-item">
-                    <div class="cv-info">
-                        <h4>IT Training Intern</h4>
-                        <p>Saudi Electricity Company</p>
-                        <span class="date">Nov 2025 - Sep 2025</span>
+        </header>
+
+        <section id="about" class="reveal">
+            <div class="sec-header">
+                <span class="sec-num">01</span>
+                <h2 class="sec-title">About <span>Me</span></h2>
+            </div>
+            <div class="split-grid">
+                <div class="bio-p">
+                    <p>I am a <b>Computer Science Professional</b> based in Tabuk. My work centers on <b>Infrastructure</b> and <b>Data Systems</b>.</p>
+                    <br>
+                    <p>I am dedicated to architecting <b>secure</b> and <b>intelligent</b> technological solutions that address real-world safety challenges.</p>
+                </div>
+                <div class="cv-card-wrap">
+                    <div class="cv-row">
+                        <div class="cv-info">
+                            <h4>IT Training Intern</h4>
+                            <p>Saudi Electricity Company</p>
+                            <span class="cv-date">Nov 2025 - Sep 2025</span>
+                        </div>
+                        <span class="cv-tag">Internship</span>
                     </div>
-                    <span class="cv-tag">Internship</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="edu" class="reveal">
-        <div class="sec-header">
-            <span class="sec-num">02</span>
-            <h2 class="sec-title">Academic <span>Journey</span></h2>
-        </div>
-        <div class="cv-container">
-            <div class="cv-item">
-                <div class="cv-info">
-                    <h4>Bachelor of Computer Science</h4>
-                    <p>University of Tabuk</p>
-                    <span class="date">Expected Graduation: 2026</span>
+        <section id="skills" class="reveal">
+            <div class="sec-header">
+                <span class="sec-num">02</span>
+                <h2 class="sec-title">Professional <span>Skills</span></h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>SQL & Database Administration</li>
+                        <li>IT Infrastructure & Support</li>
+                        <li>System Diagnostics & Troubleshooting</li>
+                        <li>Python & Flask Web Development</li>
+                        <li>Software Engineering Principles</li>
+                    </ul>
                 </div>
-                <span class="cv-tag">Honors</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="reveal">
-        <div class="sec-header">
-            <span class="sec-num">03</span>
-            <h2 class="sec-title">Featured <span>Work</span></h2>
-        </div>
-        
-        <div class="project-detailed">
-            <div class="bio-text">
-                <h3>YAQZA Security Ecosystem</h3>
-                <p style="font-size: 1rem; margin-top: 15px;">A groundbreaking AI application focused on public safety in Saudi Arabia. By analyzing crime patterns, YAQZA provides citizens with real-time risk assessments and safe-path navigation.</p>
-            </div>
-            
-            <div class="project-meta">
-                <span class="p-tag">Python / Flask</span>
-                <span class="p-tag">PostgreSQL</span>
-                <span class="p-tag">AI / ML</span>
-                <span class="p-tag">Flutter</span>
-            </div>
-
-            <div class="project-gallery">
-                <div class="gallery-box"><img src="yaqza-map.png" alt="Safety Map Visualization"></div>
-                <div class="gallery-box"><img src="yaqza-posts.png" alt="Nearby Incidents Feed"></div>
-                <div class="gallery-box"><img src="yaqza-alerts.png" alt="Real-time Notifications"></div>
-                <div class="gallery-box"><img src="yaqza-emergency.png" alt="Emergency Assistance"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="reveal">
-        <div class="sec-header">
-            <span class="sec-num">04</span>
-            <h2 class="sec-title">Technical <span>Arsenal</span></h2>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h5>DEVELOPMENT</h5>
-                <div class="skill-tags">
-                    <span class="s-tag">SQL</span> / <span class="s-tag">Python</span> / <span class="s-tag">Flask</span> / <span class="s-tag">HTML/CSS</span>
+                <div class="skill-box">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Critical Thinking & Problem Solving</li>
+                        <li>Effective Team Collaboration</li>
+                        <li>Work Under Pressure & Resilience</li>
+                        <li>Strategic Leadership</li>
+                        <li>Clear Technical Communication</li>
+                    </ul>
                 </div>
             </div>
-            <div class="skill-card">
-                <h5>INFRASTRUCTURE</h5>
-                <div class="skill-tags">
-                    <span class="s-tag">IT Support</span> / <span class="s-tag">Database Admin</span> / <span class="s-tag">System Diagnostics</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h5>STRATEGY</h5>
-                <div class="skill-tags">
-                    <span class="s-tag">Critical Thinking</span> / <span class="s-tag">Problem Solving</span> / <span class="s-tag">Team Leadership</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="reveal">
-        <div class="sec-header">
-            <span class="sec-num">05</span>
-            <h2 class="sec-title">Get in <span>Touch</span></h2>
-        </div>
-        <div class="contact-grid">
-            <div class="bio-text">
-                <h3 style="color: white; font-size: 3rem; line-height: 1.1;">Let's build something <span style="font-family: var(--font-accent); font-style: italic;">intelligent</span> together.</h3>
-                <p style="margin-top: 30px;">Currently open to software engineering and IT infrastructure opportunities across the Kingdom.</p>
+        <section id="work" class="reveal">
+            <div class="sec-header">
+                <span class="sec-num">03</span>
+                <h2 class="sec-title">Project <span>YAQZA</span></h2>
             </div>
-            
-            <div class="contact-links">
-                <a href="mailto:ahad.matlaq@Gmail.com" class="c-link">
-                    <div><p class="label">Email</p><p class="val">ahad.matlaq@gmail.com</p></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://linkedin.com/in/ahad-matlaq-901b6530a" target="_blank" class="c-link">
-                    <div><p class="label">LinkedIn</p><p class="val">Ahad Matlaq</p></div>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="c-link">
-                    <div><p class="label">Location</p><p class="val">Tabuk, Saudi Arabia</p></div>
-                    <i class="fas fa-location-dot"></i>
+            <div class="project-box">
+                <div class="bio-p">
+                    <p>YAQZA (يقظة) is an AI-driven security ecosystem designed to enhance public safety by providing real-time geographical risk analysis.</p>
+                </div>
+                <div class="p-gallery">
+                    <div class="gallery-item">
+                        <img src="yaqza-map.png" alt="Safety Map">
+                        <h5>Interactive Safety Map</h5>
+                        <p>A real-time visual representation of urban safety levels, allowing users to navigate through secure paths based on data intelligence.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="yaqza-posts.png" alt="Community Feed">
+                        <h5>Community Reporting Feed</h5>
+                        <p>A transparent platform for citizens to report incidents and view verified local safety updates from their community.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="yaqza-alerts.png" alt="Alert Notifications">
+                        <h5>Smart Risk Alerts</h5>
+                        <p>Geofenced notifications that instantly alert users when they enter areas with high-risk probability or reported incidents.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="yaqza-emergency.png" alt="Emergency Bridge">
+                        <h5>Rapid Emergency Bridge</h5>
+                        <p>A low-latency interface providing direct, one-tap access to Saudi emergency services (911) during critical situations.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>© 2026 AHAD MATLAQ</p>
-        <p>BUILT WITH PASSION FOR TECH</p>
-    </footer>
+        <section id="contact" class="reveal">
+            <div class="sec-header">
+                <span class="sec-num">04</span>
+                <h2 class="sec-title">Connect <span>With Me</span></h2>
+            </div>
+            <div class="split-grid">
+                <div class="bio-p">
+                    <h3 style="color:white; font-size: 2.5rem;">Let's talk <i>tech</i>.</h3>
+                    <p style="margin-top: 20px;">Open for opportunities in IT Infrastructure and AI-driven Software Development.</p>
+                </div>
+                <div class="contact-list">
+                    <a href="mailto:ahad.matlaq@gmail.com" class="c-item">
+                        <div><p class="label">Email</p><p>ahad.matlaq@gmail.com</p></div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/ahad-matlaq-901b6530a" target="_blank" class="c-item">
+                        <div><p class="label">LinkedIn</p><p>Ahad Matlaq</p></div>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 AHAD MATLAQ • DEFINING SAFETY THROUGH CODE
+        </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        /* Particles Config - The Moving Stars */
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 160, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#9d4edd" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 2, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#9d4edd", "opacity": 0.1, "width": 1 },
-                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#9d4edd", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
             },
             "interactivity": {
                 "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
@@ -524,21 +317,18 @@
             "retina_detect": true
         });
 
-        /* Scroll Reveal - The Sliding Effect */
         window.addEventListener('scroll', reveal);
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var revealTop = reveals[i].getBoundingClientRect().top;
-                var revealPoint = 150;
-                if (revealTop < windowHeight - revealPoint) {
+                if (revealTop < windowHeight - 100) {
                     reveals[i].classList.add('active');
                 }
             }
         }
-        reveal(); // Run once on load
+        reveal();
     </script>
 </body>
 </html>
-
