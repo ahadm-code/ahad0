@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer Portfolio | Tech-Noir Edition</title>
+    <title>Ahad Matlaq | Computer Science & IT Portfolio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 
     <style>
         /* -----------------------------------------------------------
-           1. CSS Variables & Reset - الألوان والمتغيرات
+           1. Core Variables & Root
         ----------------------------------------------------------- */
         :root {
-            --bg-deep: #050509; /* أسود مائل للأزرق العميق */
-            --primary-glow: #9d4edd; /* بنفسجي أساسي */
-            --secondary-glow: #c77dff; /* بنفسجي فاتح للتوهج */
+            --bg-deep: #050509;
+            --primary-glow: #9d4edd;
+            --secondary-glow: #c77dff;
             --text-main: #ffffff;
             --text-muted: #888899;
-            --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --font-inter: 'Inter', sans-serif;
             --font-playfair: 'Playfair Display', serif;
         }
 
+        /* -----------------------------------------------------------
+           2. General Reset
+        ----------------------------------------------------------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: crosshair; /* لمسة تقنية */
         }
 
         html {
@@ -38,11 +42,11 @@
             color: var(--text-main);
             font-family: var(--font-inter);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* -----------------------------------------------------------
-           2. Particles Background - خلفية النجوم التقنية
+           3. Starry Tech Background (Particles)
         ----------------------------------------------------------- */
         #particles-js {
             position: fixed;
@@ -50,56 +54,44 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1; /* خلف المحتوى */
+            z-index: -1;
         }
 
         /* -----------------------------------------------------------
-           3. التوهج البنفسجي العام (Glow Utilities)
-        ----------------------------------------------------------- */
-        .glow-text {
-            text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--secondary-glow);
-        }
-
-        .glow-border {
-            border: 1px solid var(--primary-glow);
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
-        }
-
-        /* -----------------------------------------------------------
-           4. Navigation - القائمة العلوية
+           4. Professional Navigation
         ----------------------------------------------------------- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 8%;
+            padding: 30px 8%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(5, 5, 9, 0.7);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            background: rgba(5, 5, 9, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.15);
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
             color: var(--text-main);
             text-decoration: none;
             transition: var(--transition-smooth);
         }
 
         .logo:hover {
-            color: var(--secondary-glow);
-            text-shadow: 0 0 10px var(--primary-glow);
+            color: var(--primary-glow);
+            text-shadow: 0 0 15px var(--primary-glow);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 40px;
         }
 
         nav a {
@@ -107,17 +99,33 @@
             text-decoration: none;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-glow);
             transition: var(--transition-smooth);
         }
 
         nav a:hover {
             color: var(--text-main);
-            text-shadow: 0 0 8px var(--primary-glow);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* -----------------------------------------------------------
-           5. Hero Section - القسم الرئيسي
+           5. Hero Section (The Impression)
         ----------------------------------------------------------- */
         .hero {
             height: 100vh;
@@ -126,55 +134,61 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 5%;
             position: relative;
         }
 
         .hero h1 {
-            font-size: clamp(4rem, 15vw, 10rem);
+            font-size: clamp(4rem, 15vw, 11rem);
             font-weight: 700;
-            line-height: 0.85;
-            letter-spacing: -5px;
+            line-height: 0.8;
+            letter-spacing: -6px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            color: var(--text-main);
+            margin-bottom: 30px;
         }
 
         .hero h1 span {
             color: var(--primary-glow);
             display: block;
-            text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--secondary-glow);
+            text-shadow: 0 0 30px var(--primary-glow), 0 0 60px var(--secondary-glow);
+            animation: glow-pulse 3s infinite alternate;
+        }
+
+        @keyframes glow-pulse {
+            from { text-shadow: 0 0 20px var(--primary-glow); }
+            to { text-shadow: 0 0 40px var(--secondary-glow), 0 0 10px white; }
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-muted);
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            font-weight: 300;
         }
 
         /* -----------------------------------------------------------
-           6. Global Sections - الأقسام العامة
+           6. Layout & Sections
         ----------------------------------------------------------- */
         .section {
-            padding: 120px 10%;
+            padding: 140px 10%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-num {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--primary-glow);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: block;
-            font-weight: 600;
+            font-weight: 700;
+            font-family: var(--font-playfair);
         }
 
         .section-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin-bottom: 60px;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            margin-bottom: 70px;
             font-weight: 400;
-            letter-spacing: -2px;
+            letter-spacing: -3px;
         }
 
         .section-title i {
@@ -184,240 +198,193 @@
         }
 
         /* -----------------------------------------------------------
-           7. About Section - عني (Grid Layout)
+           7. About & Experience Cards
         ----------------------------------------------------------- */
-        .about-grid {
+        .grid-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
         }
 
-        .about-text {
-            font-size: 1.2rem;
+        .content-box {
+            font-size: 1.3rem;
             color: var(--text-main);
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        .about-text b {
+        .highlight-text {
             color: var(--secondary-glow);
             font-weight: 600;
         }
 
-        .about-links {
-            margin-top: 30px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn-outline {
-            display: inline-block;
-            padding: 12px 30px;
-            border: 1px solid var(--primary-glow);
-            color: var(--primary-glow);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .exp-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(157, 78, 221, 0.1);
+            padding: 45px;
+            border-radius: 24px;
             transition: var(--transition-smooth);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-glow);
-            color: white;
-            box-shadow: 0 0 20px var(--primary-glow);
-        }
-
-        /* -----------------------------------------------------------
-           8. Skills Section - المهارات (Tags with Glow)
-        ----------------------------------------------------------- */
-        .skills-container {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            border-left: 3px solid var(--secondary-glow);
-            padding-left: 15px;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .skill-item {
-            padding: 12px 25px;
-            border: 1px solid rgba(157, 78, 221, 0.3);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            background: rgba(157, 78, 221, 0.05);
-            transition: var(--transition-smooth);
-            cursor: default;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-item:hover {
-            border-color: var(--secondary-glow);
-            background: rgba(157, 78, 221, 0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
-            color: white;
-        }
-
-        /* -----------------------------------------------------------
-           9. Projects Section - المشاريع (Interactive Cards)
-        ----------------------------------------------------------- */
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .project-card {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition-smooth);
-            text-decoration: none;
-            color: white;
-            background: rgba(255, 255, 255, 0.01);
+            margin-bottom: 30px;
             position: relative;
             overflow: hidden;
         }
 
-        .project-card::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: -100%;
-            background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .project-card:hover {
+        .exp-card:hover {
+            background: rgba(157, 78, 221, 0.04);
             border-color: var(--primary-glow);
-            transform: translateX(10px);
-            background: rgba(157, 78, 221, 0.03);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(157, 78, 221, 0.2);
         }
 
-        .project-card:hover::after {
-            left: 100%;
+        .exp-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
 
-        .project-info h3 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            transition: var(--transition-smooth);
+        .exp-card .company {
+            color: var(--primary-glow);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        .project-card:hover h3 {
-            color: var(--secondary-glow);
-        }
-
-        .project-tags {
-            font-size: 0.9rem;
+        .exp-card ul {
+            list-style: none;
             color: var(--text-muted);
-            display: flex;
-            gap: 15px;
+            margin-top: 15px;
         }
 
-        .project-date {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-weight: 300;
+        .exp-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .exp-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-glow);
         }
 
         /* -----------------------------------------------------------
-           10. Contact Section - تواصل (Large Art Link)
+           8. Advanced Skill Tags
         ----------------------------------------------------------- */
-        .contact {
-            padding: 120px 10% 80px;
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-group h4 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.3);
+            display: inline-block;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag {
+            padding: 14px 28px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            background: rgba(157, 78, 221, 0.03);
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(5px);
+        }
+
+        .tag:hover {
+            background: var(--primary-glow);
+            color: white;
+            border-color: var(--secondary-glow);
+            box-shadow: 0 0 25px var(--primary-glow);
+            transform: scale(1.05);
+        }
+
+        /* -----------------------------------------------------------
+           9. Project Display
+        ----------------------------------------------------------- */
+        .project-display {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(157,78,221,0.05));
+            border-radius: 30px;
+            padding: 60px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
             text-align: center;
         }
 
-        .contact-link {
-            font-size: clamp(3rem, 10vw, 7rem);
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: rgba(0,0,0,0.3);
+            border: 1px dashed var(--primary-glow);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* -----------------------------------------------------------
+           10. Contact Link & Footer
+        ----------------------------------------------------------- */
+        .contact-wrap {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .massive-link {
+            font-size: clamp(3rem, 12vw, 8rem);
             color: white;
             text-decoration: none;
             font-family: var(--font-playfair);
             font-style: italic;
             transition: var(--transition-smooth);
-            position: relative;
             display: inline-block;
+            line-height: 1;
         }
 
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 10px;
-            left: 0;
-            background-color: var(--secondary-glow);
-            transition: var(--transition-smooth);
-            box-shadow: 0 0 10px var(--secondary-glow);
-        }
-
-        .contact-link:hover {
+        .massive-link:hover {
             color: var(--secondary-glow);
-            text-shadow: 0 0 20px var(--primary-glow);
+            text-shadow: 0 0 40px var(--primary-glow);
+            transform: skewX(-5deg);
         }
 
-        .contact-link:hover::after {
-            width: 100%;
-        }
-
-        .socials {
-            margin-top: 60px;
+        .info-grid {
             display: flex;
             justify-content: center;
-            gap: 40px;
-        }
-
-        .socials a {
+            gap: 50px;
+            margin-top: 60px;
             color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: var(--transition-smooth);
         }
 
-        .socials a:hover {
-            color: white;
-            text-shadow: 0 0 8px var(--primary-glow);
-        }
+        .info-item b { color: var(--text-main); display: block; margin-bottom: 5px; }
 
         footer {
+            padding: 40px;
             text-align: center;
-            padding: 30px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.2);
             border-top: 1px solid rgba(157, 78, 221, 0.1);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.2);
+            letter-spacing: 2px;
         }
 
         /* -----------------------------------------------------------
-           11. Animations (Scroll Reveal)
+           11. Animation Classes
         ----------------------------------------------------------- */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease-out;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
@@ -425,12 +392,13 @@
             transform: translateY(0);
         }
 
-        /* Responsive Fixes */
-        @media (max-width: 900px) {
-            .about-grid { grid-template-columns: 1fr; }
-            .project-card { flex-direction: column; align-items: flex-start; gap: 15px; }
-            nav ul { gap: 15px; }
-            nav a { font-size: 0.75rem; }
+        /* -----------------------------------------------------------
+           12. Responsive
+        ----------------------------------------------------------- */
+        @media (max-width: 1000px) {
+            .grid-layout { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .section { padding: 80px 5%; }
         }
     </style>
 </head>
@@ -439,162 +407,187 @@
     <div id="particles-js"></div>
 
     <nav>
-        <a href="#" class="logo">LF</a>
+        <a href="#" class="logo">AHAD.MATLAQ</a>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#projects">Work</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1 class="reveal active">LUJAIN<br><span>FALLATAH</span></h1>
-        <p class="reveal active">AI ENGINEER · DATA ANALYST</p>
+        <h1 class="reveal active">AHAD<br><span>MATLAQ</span></h1>
+        <p class="reveal active">Computer Science Graduate · Tech Innovator</p>
     </header>
 
     <section id="about" class="section reveal">
         <span class="section-num">01</span>
-        <h2 class="section-title">About <i>Me</i></h2>
-        <div class="about-grid">
-            <div class="about-text">
+        <h2 class="section-title">Professional <i>Profile</i></h2>
+        <div class="grid-layout">
+            <div class="content-box">
                 <p>
-                    I'm an **AI Engineer** and **Data Analyst** based in Medina, Saudi Arabia.
-                    My core focus is on building intelligent systems that see, classify, and predict,
-                    as well as designing dashboards that transform complex data into clear insights.
+                    I am a forward-thinking <span class="highlight-text">Computer Science Graduate</span> (Class of 2026) dedicated to architecting digital solutions that bridge the gap between complex data and human intuition. 
+                    <br><br>
+                    With a specialized focus on software logic and a proven track record of adaptability in enterprise environments, I am ready to contribute to the next generation of technological advancement.
                 </p>
-                <div class="about-links">
-                    <a href="#" class="btn-outline">Download CV</a>
-                    <a href="https://linkedin.com" target="_blank" class="btn-outline">LinkedIn</a>
+            </div>
+            <div class="stats-box">
                 </div>
-            </div>
-            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section reveal">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Career & <i>Academia</i></h2>
+        
+        <div class="exp-card">
+            <span class="company">Saudi Electricity Company</span>
+            <h3>IT Training Intern</h3>
+            <p>Nov 2025 — Sep 2025</p>
+            <ul>
+                <li>Orchestrated IT infrastructure maintenance and system troubleshooting for large-scale operations.</li>
+                <li>Leveraged SQL for data auditing and managing corporate databases effectively.</li>
+                <li>Collaborated within the IT department to enhance system workflows and technical support responsiveness.</li>
+                <li>Applied analytical problem-solving to resolve complex network and software discrepancies.</li>
+            </ul>
+        </div>
+
+        <div class="exp-card">
+            <span class="company">University Education</span>
+            <h3>Bachelor of Computer Science</h3>
+            <p>2021 — 2026</p>
+            <p style="margin-top: 10px; color: var(--text-muted);">
+                Rigorous academic training in computational theory, software engineering, and modern database systems.
+            </p>
+        </div>
     </section>
 
     <section id="skills" class="section reveal">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Skills & <i>Tools</i></h2>
-        <div class="skills-container">
-            
-            <div class="skill-category">
-                <h3>AI & Machine Learning</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><span>🐍</span>Python</div>
-                    <div class="skill-item"><span>🧠</span>TensorFlow</div>
-                    <div class="skill-item"><span>🔥</span>PyTorch</div>
-                    <div class="skill-item"><span>👁️</span>Computer Vision</div>
-                    <div class="skill-item"><span>🎯</span>YOLOv8</div>
+        <span class="section-num">03</span>
+        <h2 class="section-title">Technical <i>Expertise</i></h2>
+        
+        <div class="skills-wrapper">
+            <div class="skill-group">
+                <h4>Core Tech</h4>
+                <div class="tag-container">
+                    <div class="tag">SQL & Databases</div>
+                    <div class="tag">Data Analysis</div>
+                    <div class="tag">IT Infrastructure</div>
+                    <div class="tag">Software Logic</div>
                 </div>
             </div>
 
-            <div class="skill-category">
-                <h3>Data Analysis & Visualization</h3>
-                <div class="skills-list">
-                    <div class="skill-item"><span>📊</span>Power BI</div>
-                    <div class="skill-item"><span>🗄️</span>SQL</div>
-                    <div class="skill-item"><span>📈</span>Pandas</div>
-                    <div class="skill-item"><span>📉</span>Plotly</div>
+            <div class="skill-group">
+                <h4>Digital Tools</h4>
+                <div class="tag-container">
+                    <div class="tag">MS Office Suite</div>
+                    <div class="tag">Project Management</div>
+                    <div class="tag">Troubleshooting</div>
                 </div>
             </div>
 
+            <div class="skill-group">
+                <h4>Soft Skills</h4>
+                <div class="tag-container">
+                    <div class="tag">Emotional Intelligence</div>
+                    <div class="tag">Critical Thinking</div>
+                    <div class="tag">Under-Pressure Work</div>
+                    <div class="tag">Problem Solving</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="projects" class="section reveal">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Selected <i>Projects</i></h2>
-        <div class="projects-list">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Selected <i>Project</i></h2>
+        <div class="project-display">
+            <h3 style="font-size: 2.5rem; margin-bottom: 10px;">Yaqadha | يقظة</h3>
+            <p style="color: var(--primary-glow); font-weight: 600;">Capstone Graduation Project</p>
             
-            <a href="#" class="project-card">
-                <div class="project-info">
-                    <h3>Vehicle Management System</h3>
-                    <div class="project-tags">
-                        <span>Power Apps</span><span>Power BI</span><span>Automation</span>
-                    </div>
-                </div>
-                <div class="project-date">2026</div>
-            </a>
-
-            <a href="#" class="project-card">
-                <div class="project-info">
-                    <h3>Real-time Waste Detection</h3>
-                    <div class="project-tags">
-                        <span>YOLOv8</span><span>Python</span><span>Computer Vision</span>
-                    </div>
-                </div>
-                <div class="project-date">2025</div>
-            </a>
-
-            <a href="#" class="project-card">
-                <div class="project-info">
-                    <h3>Financial Data Dashboard</h3>
-                    <div class="project-tags">
-                        <span>Streamlit</span><span>Python</span><span>Data Analysis</span>
-                    </div>
-                </div>
-                <div class="project-date">2025</div>
-            </a>
-
+            <div class="image-placeholder">
+                [ DROP YOUR PROJECT SCREENSHOTS HERE ]
+            </div>
+            
+            <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">
+                A comprehensive solution developed to demonstrate proficiency in system design and practical implementation. 
+                (Feel free to add specific details about the project's goal here).
+            </p>
         </div>
     </section>
 
-    <footer id="contact" class="contact reveal">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Get in <i>Touch</i></h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">Let's build something intelligent together.</p>
-        <a href="mailto:hello@example.com" class="contact-link">Start a Conversation</a>
+    <section id="contact" class="section contact-wrap reveal">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Let's <i>Connect</i></h2>
+        <a href="mailto:ahad.matlaq@Gmail.com" class="massive-link">Say Hello</a>
         
-        <div class="socials">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Email</a>
+        <div class="info-grid">
+            <div class="info-item">
+                <b>Direct Line</b>
+                +966 553914401
+            </div>
+            <div class="info-item">
+                <b>LinkedIn</b>
+                <a href="https://www.linkedin.com/in/ahad-matlaq-901b6530a" target="_blank" style="color: var(--secondary-glow);">ahad-matlaq</a>
+            </div>
+            <div class="info-item">
+                <b>Location</b>
+                Saudi Arabia
+            </div>
         </div>
-        
-        <p style="margin-top: 80px; font-size: 0.8rem; color: rgba(255,255,255,0.1);">© 2026 Lujain Fallatah. Tech-Noir Edition.</p>
+    </section>
+
+    <footer>
+        © 2026 AHAD MATLAQ · CRAFTED FOR EXCELLENCE
     </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <script>
-        /* 1. تكوين خلفية النجوم التقنية (Particles Config) */
+        /* Particles Config */
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#9d4edd" }, /* لون النجوم بنفسجي */
+                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#9d4edd" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 2, "random": true },
+                "size": { "value": 2.5, "random": true },
                 "line_linked": { 
                     "enable": true, 
                     "distance": 150, 
-                    "color": "#9d4edd", /* لون الخطوط بنفسجي */
+                    "color": "#9d4edd", 
                     "opacity": 0.2, 
                     "width": 1 
                 },
-                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+                "move": { "enable": true, "speed": 1.2, "direction": "none", "random": true, "out_mode": "out" }
             },
             "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+                "events": { 
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" } 
+                }
             },
             "retina_detect": true
         });
 
-        /* 2. تأثير الظهور عند التمرير (Reveal Effect) */
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
+        /* Scroll Reveal Logic */
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+                    el.classList.add('active');
                 }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); /* تشغيل أولي */
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal(); // Init on load
     </script>
 </body>
 </html>
+
+
