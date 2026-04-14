@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ahad Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background: radial-gradient(circle at top, #1b0033, #040008);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* =========================
+   STARS
+========================= */
+.stars, .stars::before, .stars::after{
+  position:fixed;
+  width:100%;
+  height:100%;
+  content:"";
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+.stars::before{
+  background-image: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                    radial-gradient(1px 1px at 80px 90px, #b36bff, transparent),
+                    radial-gradient(1px 1px at 130px 40px, #fff, transparent);
+  background-size:250px 250px;
+  animation: moveStars 80s linear infinite;
+  opacity:0.4;
+}
+
+.stars::after{
+  background-image: radial-gradient(1px 1px at 50px 60px, #a855f7, transparent),
+                    radial-gradient(1px 1px at 120px 150px, #fff, transparent);
+  background-size:300px 300px;
+  animation: moveStars2 120s linear infinite;
+  opacity:0.25;
+}
+
+@keyframes moveStars{
+  from{transform:translateY(0);}
+  to{transform:translateY(-1000px);}
+}
+
+@keyframes moveStars2{
+  from{transform:translateY(0);}
+  to{transform:translateY(-1200px);}
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:18px;
+  background: rgba(10,0,20,0.4);
+  backdrop-filter: blur(12px);
+  z-index:1000;
+}
+
+nav a{
+  color:#ccc;
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#a855f7;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.glow-circle{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:22px;
+  background: radial-gradient(circle,#a855f7,#1b0033);
+  box-shadow: 0 0 30px #a855f7;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 10px #a855f7;}
+  50%{box-shadow:0 0 40px #a855f7;}
+  100%{box-shadow:0 0 10px #a855f7;}
+}
+
+.hero h1{
+  font-size:44px;
+  margin-top:20px;
+  text-shadow:0 0 20px #a855f7;
+}
+
+.hero p{
+  color:#aaa;
+  margin-top:10px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btns{
+  margin-top:25px;
+  display:flex;
+  gap:15px;
+}
+
+.btn{
+  padding:12px 22px;
+  border-radius:30px;
+  border:1px solid #a855f7;
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#a855f7;
+  box-shadow:0 0 20px #a855f7;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section{
+  padding:90px 14%;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h2{
+  font-size:30px;
+  margin-bottom:20px;
+  color:#b36bff;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card{
+  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:22px;
+  border-radius:16px;
+  backdrop-filter: blur(10px);
+  box-shadow:0 0 20px rgba(168,85,247,0.15);
+  margin-bottom:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 30px rgba(168,85,247,0.35);
+}
+
+/* =========================
+   CONTACT
+========================= */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+input, textarea{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #333;
+  background:#0b0018;
+  color:#fff;
+}
+
+button{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#a855f7;
+  color:white;
+  cursor:pointer;
+}
+
+/* =========================
+   FOOTER SPACE
+========================= */
+footer{
+  text-align:center;
+  padding:40px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#tools">Tools</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="glow-circle">Ahad</div>
+  <h1>Ahad Matlaq</h1>
+  <p>Jeddah, Saudi Arabia</p>
+
+  <div class="btns">
+    <a class="btn" href="Cv ahad1.pdf" target="_blank">View CV</a>
+    <a class="btn" href="Cv ahad1.pdf" download>Download CV</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    Passionate Computer Science graduate focused on building modern, scalable, and visually stunning web applications with strong UI/UX design principles.
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="card">
+    B.Sc. Computer Science<br>
+    University of Technology<br>
+    2021 — 2026
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="card">
+    Co-op Trainee — Saudi Electricity Company<br><br>
+    Gained experience in IT systems, enterprise infrastructure, and technical support operations.
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    JavaScript • React • Python • SQL • Git • UI Design • Problem Solving
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <h2>Tools</h2>
+  <div class="card">
+    VS Code • GitHub • Figma • Postman • Notion
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <b>Yaqdah (يقظة)</b><br>
+    AI-powered safety system with map-based risk analysis and alerts.
+  </div>
+
+  <div class="card">
+    Portfolio Website + Web Apps + UI Experiments
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <div class="card">
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Ahad Matlaq — All Rights Reserved
+</footer>
+
+</body>
+</html>
