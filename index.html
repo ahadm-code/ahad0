@@ -1,103 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahad Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   BASE
-========================= */
+/* ================= BASE ================= */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Inter', sans-serif;
-  scroll-behavior:smooth;
+  font-family:Inter, sans-serif;
 }
 
 body{
-  background: radial-gradient(circle at top, #1b0033, #040008);
+  background:#05010a;
   color:#fff;
   overflow-x:hidden;
 }
 
-/* =========================
-   STARS
-========================= */
-.stars, .stars::before, .stars::after{
+/* ================= BACKGROUND ================= */
+.bg{
   position:fixed;
-  width:100%;
-  height:100%;
-  content:"";
-  top:0;
-  left:0;
-  z-index:-1;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(168,85,247,0.35), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(99,102,241,0.25), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(236,72,153,0.15), transparent 50%),
+    #05010a;
+  filter: blur(0px);
 }
 
-.stars::before{
-  background-image: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
-                    radial-gradient(1px 1px at 80px 90px, #b36bff, transparent),
-                    radial-gradient(1px 1px at 130px 40px, #fff, transparent);
-  background-size:250px 250px;
-  animation: moveStars 80s linear infinite;
-  opacity:0.4;
-}
-
-.stars::after{
-  background-image: radial-gradient(1px 1px at 50px 60px, #a855f7, transparent),
-                    radial-gradient(1px 1px at 120px 150px, #fff, transparent);
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 120px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 200px 200px, white, transparent);
   background-size:300px 300px;
-  animation: moveStars2 120s linear infinite;
-  opacity:0.25;
+  animation: moveStars 140s linear infinite;
+  opacity:0.5;
 }
 
 @keyframes moveStars{
   from{transform:translateY(0);}
-  to{transform:translateY(-1000px);}
-}
-
-@keyframes moveStars2{
-  from{transform:translateY(0);}
   to{transform:translateY(-1200px);}
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* ================= NAV ================= */
 nav{
   position:fixed;
   top:0;
   width:100%;
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:28px;
   padding:18px;
-  background: rgba(10,0,20,0.4);
-  backdrop-filter: blur(12px);
-  z-index:1000;
+  background:rgba(10,0,20,0.25);
+  backdrop-filter:blur(14px);
+  z-index:100;
 }
 
 nav a{
-  color:#ccc;
+  color:#c4b5fd;
   text-decoration:none;
-  font-weight:500;
-  position:relative;
-  transition:0.3s;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:2px;
-  background:#a855f7;
+  font-size:13px;
+  letter-spacing:0.5px;
   transition:0.3s;
 }
 
@@ -105,13 +80,7 @@ nav a:hover{
   color:#fff;
 }
 
-nav a:hover::after{
-  width:100%;
-}
-
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 .hero{
   height:100vh;
   display:flex;
@@ -121,113 +90,119 @@ nav a:hover::after{
   text-align:center;
 }
 
-.glow-circle{
+/* GLASS AVATAR */
+.avatar{
   width:150px;
   height:150px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-weight:700;
   font-size:22px;
-  background: radial-gradient(circle,#a855f7,#1b0033);
-  box-shadow: 0 0 30px #a855f7;
-  animation: pulse 3s infinite;
+  letter-spacing:2px;
+
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.15);
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 0 60px rgba(168,85,247,0.5),
+    inset 0 0 20px rgba(255,255,255,0.05);
+
+  animation:pulse 4s infinite;
 }
 
 @keyframes pulse{
-  0%{box-shadow:0 0 10px #a855f7;}
-  50%{box-shadow:0 0 40px #a855f7;}
-  100%{box-shadow:0 0 10px #a855f7;}
+  0%{box-shadow:0 0 30px rgba(168,85,247,0.3);}
+  50%{box-shadow:0 0 70px rgba(168,85,247,0.6);}
+  100%{box-shadow:0 0 30px rgba(168,85,247,0.3);}
 }
 
 .hero h1{
-  font-size:44px;
-  margin-top:20px;
-  text-shadow:0 0 20px #a855f7;
+  margin-top:22px;
+  font-size:48px;
+  font-weight:800;
 }
 
 .hero p{
   color:#aaa;
-  margin-top:10px;
+  margin-top:8px;
+  font-size:14px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* ================= CV BUTTONS ================= */
 .btns{
-  margin-top:25px;
+  margin-top:22px;
   display:flex;
-  gap:15px;
+  gap:12px;
 }
 
 .btn{
-  padding:12px 22px;
-  border-radius:30px;
-  border:1px solid #a855f7;
-  color:white;
+  padding:11px 18px;
+  border-radius:999px;
+  border:1px solid rgba(168,85,247,0.4);
   text-decoration:none;
+  color:#fff;
+  font-size:13px;
   transition:0.3s;
 }
 
 .btn:hover{
   background:#a855f7;
-  box-shadow:0 0 20px #a855f7;
+  box-shadow:0 0 25px #a855f7;
+  transform:translateY(-2px);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ================= SECTIONS ================= */
 section{
-  padding:90px 14%;
-  animation: fadeUp 1s ease;
-}
-
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
+  padding:100px 16%;
 }
 
 h2{
-  font-size:30px;
-  margin-bottom:20px;
-  color:#b36bff;
+  font-size:22px;
+  margin-bottom:18px;
+  color:#c4b5fd;
+  letter-spacing:1px;
 }
 
-/* =========================
-   CARDS
-========================= */
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+/* ================= CARD ================= */
 .card{
-  background: rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:22px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
-  backdrop-filter: blur(10px);
-  box-shadow:0 0 20px rgba(168,85,247,0.15);
-  margin-bottom:20px;
+  padding:20px;
   transition:0.3s;
+  backdrop-filter:blur(10px);
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 30px rgba(168,85,247,0.35);
+  transform:translateY(-6px);
+  border-color:rgba(168,85,247,0.4);
+  box-shadow:0 10px 40px rgba(168,85,247,0.15);
 }
 
-/* =========================
-   CONTACT
-========================= */
+/* ================= CONTACT ================= */
 form{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
 }
 
-input, textarea{
+input,textarea{
   padding:12px;
   border-radius:10px;
-  border:1px solid #333;
+  border:1px solid rgba(255,255,255,0.1);
   background:#0b0018;
-  color:#fff;
+  color:white;
 }
 
 button{
@@ -239,35 +214,37 @@ button{
   cursor:pointer;
 }
 
-/* =========================
-   FOOTER SPACE
-========================= */
-footer{
-  text-align:center;
-  padding:40px;
-  color:#666;
+/* ================= SCROLL ANIMATION ================= */
+.fade{
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.8s ease;
 }
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
 <div class="stars"></div>
 
-<!-- NAV -->
 <nav>
   <a href="#about">About</a>
   <a href="#education">Education</a>
   <a href="#experience">Experience</a>
   <a href="#skills">Skills</a>
-  <a href="#tools">Tools</a>
   <a href="#projects">Projects</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="glow-circle">Ahad</div>
+<section class="hero fade">
+  <div class="avatar">AHAD</div>
   <h1>Ahad Matlaq</h1>
   <p>Jeddah, Saudi Arabia</p>
 
@@ -277,80 +254,80 @@ footer{
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
+<section id="about" class="fade">
+  <h2>About</h2>
   <div class="card">
-    Passionate Computer Science graduate focused on building modern, scalable, and visually stunning web applications with strong UI/UX design principles.
+    Computer Science graduate focused on modern UI/UX and scalable systems.
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
+<section id="education" class="fade">
   <h2>Education</h2>
   <div class="card">
-    B.Sc. Computer Science<br>
-    University of Technology<br>
-    2021 — 2026
+    B.Sc Computer Science — University of Technology (2021–2026)
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="fade">
   <h2>Experience</h2>
   <div class="card">
-    Co-op Trainee — Saudi Electricity Company<br><br>
-    Gained experience in IT systems, enterprise infrastructure, and technical support operations.
+    Co-op Trainee — Saudi Electricity Company
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="fade">
   <h2>Skills</h2>
-  <div class="card">
-    JavaScript • React • Python • SQL • Git • UI Design • Problem Solving
+
+  <div class="grid">
+    <div class="card">JavaScript / React</div>
+    <div class="card">Python / SQL</div>
+    <div class="card">Git / GitHub</div>
+    <div class="card">UI / UX Design</div>
   </div>
 </section>
 
-<!-- TOOLS -->
-<section id="tools">
-  <h2>Tools</h2>
-  <div class="card">
-    VS Code • GitHub • Figma • Postman • Notion
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="fade">
   <h2>Projects</h2>
 
-  <div class="card">
-    <b>Yaqdah (يقظة)</b><br>
-    AI-powered safety system with map-based risk analysis and alerts.
-  </div>
+  <div class="grid">
+    <div class="card">
+      <b>Yaqdah App</b><br>
+      AI safety system with mapping & alerts.
+    </div>
 
-  <div class="card">
-    Portfolio Website + Web Apps + UI Experiments
+    <div class="card">
+      Portfolio Website<br>
+      Modern responsive web portfolio.
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact Me</h2>
+<section id="contact" class="fade">
+  <h2>Contact</h2>
 
   <div class="card">
     <form>
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <textarea rows="5" placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
+      <input placeholder="Name">
+      <input placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button>Send</button>
     </form>
   </div>
 </section>
 
-<footer>
-  © 2026 Ahad Matlaq — All Rights Reserved
-</footer>
+<script>
+const elements = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+    }
+  });
+});
+
+elements.forEach(el=>observer.observe(el));
+</script>
 
 </body>
 </html>
