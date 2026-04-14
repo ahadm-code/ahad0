@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموقع الشخصي | Portfolio</title>
+    <title>AI Engineer Portfolio | Tech-Noir Edition</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS التصميم --- */
+        /* -----------------------------------------------------------
+           1. CSS Variables & Reset - الألوان والمتغيرات
+        ----------------------------------------------------------- */
         :root {
-            --bg: #0a0a0a;
-            --text: #ffffff;
-            --accent: #808080;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-deep: #050509; /* أسود مائل للأزرق العميق */
+            --primary-glow: #9d4edd; /* بنفسجي أساسي */
+            --secondary-glow: #c77dff; /* بنفسجي فاتح للتوهج */
+            --text-main: #ffffff;
+            --text-muted: #888899;
+            --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --font-inter: 'Inter', sans-serif;
+            --font-playfair: 'Playfair Display', serif;
         }
 
         * {
@@ -24,57 +30,95 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-inter);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* القائمة العلوية */
+        /* -----------------------------------------------------------
+           2. Particles Background - خلفية النجوم التقنية
+        ----------------------------------------------------------- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* خلف المحتوى */
+        }
+
+        /* -----------------------------------------------------------
+           3. التوهج البنفسجي العام (Glow Utilities)
+        ----------------------------------------------------------- */
+        .glow-text {
+            text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--secondary-glow);
+        }
+
+        .glow-border {
+            border: 1px solid var(--primary-glow);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+        }
+
+        /* -----------------------------------------------------------
+           4. Navigation - القائمة العلوية
+        ----------------------------------------------------------- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 8%;
+            padding: 25px 8%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 9, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             letter-spacing: 2px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .logo:hover {
+            color: var(--secondary-glow);
+            text-shadow: 0 0 10px var(--primary-glow);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
 
         nav a {
-            color: var(--text);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.6;
-            transition: var(--transition);
+            letter-spacing: 1.5px;
+            transition: var(--transition-smooth);
         }
 
         nav a:hover {
-            opacity: 1;
+            color: var(--text-main);
+            text-shadow: 0 0 8px var(--primary-glow);
         }
 
-        /* القسم الرئيسي Hero */
+        /* -----------------------------------------------------------
+           5. Hero Section - القسم الرئيسي
+        ----------------------------------------------------------- */
         .hero {
             height: 100vh;
             display: flex;
@@ -83,142 +127,296 @@
             align-items: center;
             text-align: center;
             padding: 0 5%;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: clamp(3.5rem, 12vw, 9rem);
+            font-size: clamp(4rem, 15vw, 10rem);
             font-weight: 700;
             line-height: 0.85;
-            letter-spacing: -4px;
-            margin-bottom: 20px;
+            letter-spacing: -5px;
             text-transform: uppercase;
+            margin-bottom: 25px;
+            color: var(--text-main);
         }
 
         .hero h1 span {
-            color: var(--accent);
+            color: var(--primary-glow);
             display: block;
+            text-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--secondary-glow);
         }
 
         .hero p {
-            font-size: 1.1rem;
-            opacity: 0.5;
-            letter-spacing: 2px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        /* الأقسام العامة */
+        /* -----------------------------------------------------------
+           6. Global Sections - الأقسام العامة
+        ----------------------------------------------------------- */
         .section {
             padding: 120px 10%;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-num {
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-bottom: 10px;
+            font-size: 1rem;
+            color: var(--primary-glow);
+            margin-bottom: 15px;
             display: block;
+            font-weight: 600;
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 40px;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 60px;
             font-weight: 400;
+            letter-spacing: -2px;
         }
 
         .section-title i {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-playfair);
             font-style: italic;
+            color: var(--secondary-glow);
         }
 
-        /* المهارات */
-        .skills-grid {
+        /* -----------------------------------------------------------
+           7. About Section - عني (Grid Layout)
+        ----------------------------------------------------------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            opacity: 0.9;
+        }
+
+        .about-text b {
+            color: var(--secondary-glow);
+            font-weight: 600;
+        }
+
+        .about-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 1px solid var(--primary-glow);
+            color: var(--primary-glow);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-glow);
+            color: white;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        /* -----------------------------------------------------------
+           8. Skills Section - المهارات (Tags with Glow)
+        ----------------------------------------------------------- */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            border-left: 3px solid var(--secondary-glow);
+            padding-left: 15px;
+        }
+
+        .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            max-width: 800px;
         }
 
         .skill-item {
             padding: 12px 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(157, 78, 221, 0.3);
             border-radius: 50px;
             font-size: 0.9rem;
-            transition: var(--transition);
+            background: rgba(157, 78, 221, 0.05);
+            transition: var(--transition-smooth);
             cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .skill-item:hover {
-            background: white;
-            color: black;
+            border-color: var(--secondary-glow);
+            background: rgba(157, 78, 221, 0.15);
             transform: translateY(-5px);
-        }
-
-        /* المشاريع */
-        .project-card {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-            text-decoration: none;
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
             color: white;
         }
 
+        /* -----------------------------------------------------------
+           9. Projects Section - المشاريع (Interactive Cards)
+        ----------------------------------------------------------- */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.01);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, transparent, rgba(157, 78, 221, 0.1), transparent);
+            transition: 0.5s;
+        }
+
         .project-card:hover {
-            padding-right: 20px;
-            border-bottom-color: white;
+            border-color: var(--primary-glow);
+            transform: translateX(10px);
+            background: rgba(157, 78, 221, 0.03);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
+        }
+
+        .project-card:hover::after {
+            left: 100%;
         }
 
         .project-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            transition: var(--transition-smooth);
         }
 
-        .project-info p {
-            opacity: 0.5;
+        .project-card:hover h3 {
+            color: var(--secondary-glow);
+        }
+
+        .project-tags {
             font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 15px;
         }
 
-        /* التذييل / تواصل معي */
-        footer {
-            padding: 100px 10% 50px;
+        .project-date {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* -----------------------------------------------------------
+           10. Contact Section - تواصل (Large Art Link)
+        ----------------------------------------------------------- */
+        .contact {
+            padding: 120px 10% 80px;
             text-align: center;
         }
 
         .contact-link {
-            font-size: clamp(2rem, 6vw, 5rem);
+            font-size: clamp(3rem, 10vw, 7rem);
             color: white;
             text-decoration: none;
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-playfair);
             font-style: italic;
-            transition: var(--transition);
+            transition: var(--transition-smooth);
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 10px;
+            left: 0;
+            background-color: var(--secondary-glow);
+            transition: var(--transition-smooth);
+            box-shadow: 0 0 10px var(--secondary-glow);
         }
 
         .contact-link:hover {
-            opacity: 0.5;
+            color: var(--secondary-glow);
+            text-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .contact-link:hover::after {
+            width: 100%;
         }
 
         .socials {
-            margin-top: 50px;
+            margin-top: 60px;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
         }
 
         .socials a {
-            color: var(--accent);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition-smooth);
         }
 
-        /* انيميشن الظهور */
+        .socials a:hover {
+            color: white;
+            text-shadow: 0 0 8px var(--primary-glow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(157, 78, 221, 0.1);
+        }
+
+        /* -----------------------------------------------------------
+           11. Animations (Scroll Reveal)
+        ----------------------------------------------------------- */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: all 1s ease-out;
         }
 
@@ -227,93 +425,176 @@
             transform: translateY(0);
         }
 
+        /* Responsive Fixes */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .project-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+            nav ul { gap: 15px; }
+            nav a { font-size: 0.75rem; }
+        }
     </style>
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <nav>
-        <div class="logo">LF</div>
+        <a href="#" class="logo">LF</a>
         <ul>
-            <li><a href="#about">عني</a></li>
-            <li><a href="#projects">المشاريع</a></li>
-            <li><a href="#contact">تواصل</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>الاسم <br><span>العائلة</span></h1>
-        <p>AI ENGINEER · DATA ANALYST</p>
+        <h1 class="reveal active">LUJAIN<br><span>FALLATAH</span></h1>
+        <p class="reveal active">AI ENGINEER · DATA ANALYST</p>
     </header>
 
     <section id="about" class="section reveal">
         <span class="section-num">01</span>
-        <h2 class="section-title">عن <i>نفسي</i></h2>
-        <p style="max-width: 600px; font-size: 1.2rem; opacity: 0.8;">
-            أنا مهندس ذكاء اصطناعي شغوف بتحويل الأفكار إلى واقع رقمي. أتخصص في معالجة اللغات الطبيعية والرؤية الحاسوبية، مع التركيز على بناء تجارب مستخدم ذكية وبسيطة.
-        </p>
-        
-        <div class="skills-grid" style="margin-top: 40px;">
-            <div class="skill-item">Python</div>
-            <div class="skill-item">TensorFlow</div>
-            <div class="skill-item">Computer Vision</div>
-            <div class="skill-item">SQL</div>
-            <div class="skill-item">Machine Learning</div>
-            <div class="skill-item">Cloud Computing</div>
+        <h2 class="section-title">About <i>Me</i></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm an **AI Engineer** and **Data Analyst** based in Medina, Saudi Arabia.
+                    My core focus is on building intelligent systems that see, classify, and predict,
+                    as well as designing dashboards that transform complex data into clear insights.
+                </p>
+                <div class="about-links">
+                    <a href="#" class="btn-outline">Download CV</a>
+                    <a href="https://linkedin.com" target="_blank" class="btn-outline">LinkedIn</a>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Skills & <i>Tools</i></h2>
+        <div class="skills-container">
+            
+            <div class="skill-category">
+                <h3>AI & Machine Learning</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><span>🐍</span>Python</div>
+                    <div class="skill-item"><span>🧠</span>TensorFlow</div>
+                    <div class="skill-item"><span>🔥</span>PyTorch</div>
+                    <div class="skill-item"><span>👁️</span>Computer Vision</div>
+                    <div class="skill-item"><span>🎯</span>YOLOv8</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Data Analysis & Visualization</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><span>📊</span>Power BI</div>
+                    <div class="skill-item"><span>🗄️</span>SQL</div>
+                    <div class="skill-item"><span>📈</span>Pandas</div>
+                    <div class="skill-item"><span>📉</span>Plotly</div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="projects" class="section reveal">
-        <span class="section-num">02</span>
-        <h2 class="section-title">بعض <i>المشاريع</i></h2>
-        
-        <a href="#" class="project-card">
-            <div class="project-info">
-                <h3>نظام الكشف الذكي</h3>
-                <p>Computer Vision · YOLOv8</p>
-            </div>
-            <span>2026</span>
-        </a>
+        <span class="section-num">03</span>
+        <h2 class="section-title">Selected <i>Projects</i></h2>
+        <div class="projects-list">
+            
+            <a href="#" class="project-card">
+                <div class="project-info">
+                    <h3>Vehicle Management System</h3>
+                    <div class="project-tags">
+                        <span>Power Apps</span><span>Power BI</span><span>Automation</span>
+                    </div>
+                </div>
+                <div class="project-date">2026</div>
+            </a>
 
-        <a href="#" class="project-card">
-            <div class="project-info">
-                <h3>لوحة بيانات الاستثمار</h3>
-                <p>Data Analysis · Power BI</p>
-            </div>
-            <span>2025</span>
-        </a>
+            <a href="#" class="project-card">
+                <div class="project-info">
+                    <h3>Real-time Waste Detection</h3>
+                    <div class="project-tags">
+                        <span>YOLOv8</span><span>Python</span><span>Computer Vision</span>
+                    </div>
+                </div>
+                <div class="project-date">2025</div>
+            </a>
+
+            <a href="#" class="project-card">
+                <div class="project-info">
+                    <h3>Financial Data Dashboard</h3>
+                    <div class="project-tags">
+                        <span>Streamlit</span><span>Python</span><span>Data Analysis</span>
+                    </div>
+                </div>
+                <div class="project-date">2025</div>
+            </a>
+
+        </div>
     </section>
 
-    <footer id="contact" class="reveal">
-        <span class="section-num">03</span>
-        <h2 class="section-title">هل نبدأ <i>بالعمل؟</i></h2>
-        <a href="mailto:hello@example.com" class="contact-link">إرسال بريد إلكتروني</a>
+    <footer id="contact" class="contact reveal">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Get in <i>Touch</i></h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Let's build something intelligent together.</p>
+        <a href="mailto:hello@example.com" class="contact-link">Start a Conversation</a>
         
         <div class="socials">
             <a href="#">LinkedIn</a>
             <a href="#">GitHub</a>
-            <a href="#">Twitter</a>
+            <a href="#">Email</a>
         </div>
-        <p style="margin-top: 50px; font-size: 0.7rem; opacity: 0.3;">© 2026 جميع الحقوق محفوظة</p>
+        
+        <p style="margin-top: 80px; font-size: 0.8rem; color: rgba(255,255,255,0.1);">© 2026 Lujain Fallatah. Tech-Noir Edition.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
-        // تأثير الظهور عند التمرير (Reveal Effect)
+        /* 1. تكوين خلفية النجوم التقنية (Particles Config) */
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#9d4edd" }, /* لون النجوم بنفسجي */
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 2, "random": true },
+                "line_linked": { 
+                    "enable": true, 
+                    "distance": 150, 
+                    "color": "#9d4edd", /* لون الخطوط بنفسجي */
+                    "opacity": 0.2, 
+                    "width": 1 
+                },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+            },
+            "retina_detect": true
+        });
+
+        /* 2. تأثير الظهور عند التمرير (Reveal Effect) */
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
-
         window.addEventListener("scroll", reveal);
-
-        // تشغيل التأثير عند تحميل الصفحة لأول مرة
-        reveal();
+        reveal(); /* تشغيل أولي */
     </script>
 </body>
 </html>
