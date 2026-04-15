@@ -226,117 +226,136 @@
             </div>
         </section>
 <style>
-    /* التنسيق لضمان ظهور الألوان والخطوط تحت بعض */
-    .edu-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* تقسيم الصفحة لنص يسار وبطاقة يمين */
-        gap: 40px;
-        margin-top: 40px;
-        align-items: start;
+    /* حاوية القسم الرئيسية */
+    .edu-single-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* كل العناصر تبدأ من اليسار */
+        max-width: 850px; /* عرض مريح للعين */
+        margin-top: 30px;
     }
 
-    .edu-content-left {
-        max-width: 500px;
-    }
-
-    .edu-content-left p {
-        color: #8e8ea8; /* اللون الرمادي المعتمد */
+    /* النص التمهيدي فوق المربع */
+    .edu-intro-text {
+        color: #8e8ea8;
         font-size: 1.1rem;
         line-height: 1.8;
+        margin-bottom: 40px; /* مسافة واضحة قبل المربع */
+        text-align: left;
     }
 
-    .edu-card-right {
-        background: rgba(17, 17, 25, 0.8); /* خلفية داكنة شفافة */
-        border: 1px solid rgba(157, 78, 221, 0.2); /* إطار بنفسجي خفيف */
+    /* تصميم المربع (البطاقة) */
+    .edu-minimal-card {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.01); /* خلفية شفافة جداً */
+        border: 1px solid rgba(157, 78, 221, 0.15); /* إطار بنفسجي خفيف */
         padding: 40px;
-        border-radius: 4px;
         position: relative;
+        transition: all 0.5s ease;
     }
 
-    .edu-card-right h4 {
-        color: #ffffff;
+    /* تأثير عند تمرير الماوس على المربع */
+    .edu-minimal-card:hover {
+        border-color: #9d4edd;
+        background: rgba(157, 78, 221, 0.03);
+        transform: translateY(-5px);
+    }
+
+    /* الجزء العلوي داخل المربع (العنوان والتاغ) */
+    .card-top-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .edu-minimal-card h4 {
         font-size: 1.4rem;
-        margin-bottom: 5px;
+        color: #ffffff;
+        font-weight: 700;
+        margin: 0;
     }
 
-    .edu-university {
-        color: #9d4edd; /* اللون البنفسجي النيون */
-        font-family: monospace;
+    /* اسم الجامعة */
+    .edu-uni-name {
+        color: #9d4edd;
+        font-family: 'JetBrains Mono', monospace; /* خط تقني */
+        font-size: 0.9rem;
         display: block;
         margin-bottom: 20px;
     }
 
-    .edu-detail-text {
+    /* وصف الدراسة داخل المربع */
+    .edu-card-desc {
         color: #8e8ea8;
         font-size: 0.95rem;
         line-height: 1.7;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
-    .edu-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid rgba(255,255,255,0.05);
+    /* الخط السفلي والتاريخ */
+    .card-bottom-line {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
         padding-top: 15px;
     }
 
-    .edu-year {
+    .edu-date-label {
         color: #4a4a5e;
         font-size: 0.8rem;
+        font-family: 'JetBrains Mono', monospace;
     }
 
-    .edu-badge {
+    /* التاغ البنفسجي الصغير */
+    .edu-badge-tag {
+        font-size: 0.65rem;
         border: 1px solid #9d4edd;
         color: #9d4edd;
-        padding: 2px 10px;
-        font-size: 0.65rem;
-        text-transform: uppercase;
+        padding: 3px 12px;
         letter-spacing: 1px;
+        font-weight: 800;
     }
 
-    /* للجوال: تحويل العناصر لتصبح فوق بعض */
-    @media (max-width: 968px) {
-        .edu-container {
-            grid-template-columns: 1fr;
-        }
+    /* تحسين الظهور على الجوال */
+    @media (max-width: 768px) {
+        .edu-minimal-card { padding: 25px; }
+        .card-top-flex { flex-direction: column; align-items: flex-start; gap: 10px; }
+        .edu-badge-tag { align-self: flex-start; }
     }
 </style>
 
 <section id="education" class="reveal">
     <div class="section-tag">
         <div class="tag-line"></div>
-        <div class="tag-text">Academic Path</div>
+        <div class="tag-text">02 . Academic Path</div>
     </div>
     
     <h2 class="section-heading">Education <span>History</span></h2>
-    
-    <div class="edu-container">
-        <div class="edu-content-left">
-            <p>
-                My academic journey in <b>Computer Science</b> has provided me with a strong foundation in problem-solving, algorithm design, and modern software development practices.
-            </p>
-        </div>
 
-        <div class="edu-card-right">
-            <div class="edu-info">
+    <div class="edu-single-column">
+        
+        <p class="edu-intro-text">
+            My academic journey in <b>Computer Science</b> has provided me with a strong foundation in problem-solving, algorithm design, and modern software development practices.
+        </p>
+
+        <div class="edu-minimal-card">
+            <div class="card-top-flex">
                 <h4>Bachelor of Computer Science</h4>
-                <span class="edu-university">University of Tabuk</span>
-                
-                <p class="edu-detail-text">
-                    Studied core computer science concepts including programming, data structures, databases, and software engineering fundamentals. Built academic and practical projects focused on real-world applications.
-                </p>
-                
-                <div class="edu-footer">
-                    <span class="edu-year">2021 — 2026 (Expected)</span>
-                    <span class="edu-badge">Education</span>
-                </div>
+                <span class="edu-badge-tag">EDUCATION</span>
+            </div>
+            
+            <span class="edu-uni-name">University of Tabuk</span>
+            
+            <p class="edu-card-desc">
+                Studied core computer science concepts including programming, data structures, databases, and software engineering fundamentals. Built academic and practical projects focused on real-world applications.
+            </p>
+            
+            <div class="card-bottom-line">
+                <span class="edu-date-label">2021 — 2026 (Expected)</span>
             </div>
         </div>
+        
     </div>
 </section>
-
-
 
 
         <section id="skills" class="reveal">
