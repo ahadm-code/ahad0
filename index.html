@@ -227,132 +227,88 @@
             </div>
         </section>
 <style>
-    /* حاوية القسم الرئيسية */
-    .edu-single-column {
+    /* التنسيق للعنوان الكبير والرقم (لجزء Academic Path فقط) */
+    .section-tag-row {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start; /* كل العناصر تبدأ من اليسار */
-        max-width: 850px; /* عرض مريح للعين */
-        margin-top: 30px;
+        align-items: center;
+        gap: 15px; /* المسافة بين الرقم والعنوان */
+        margin-bottom: 25px; /* مسافة قبل النص التوضيحي */
     }
 
-    /* النص التمهيدي فوق المربع */
-    .edu-intro-text {
+    .edu-section-num {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 0.8rem;
+        color: #9d4edd; /* اللون البنفسجي */
+        font-weight: 700;
+        opacity: 0.8;
+        display: block;
+        margin-bottom: 5px; /* رفع بسيط للرقم ليتوازى مع النص */
+    }
+
+    .edu-main-header {
+        font-family: 'Playfair Display', serif; /* الخط السيريف المميز */
+        font-size: 4.5rem; /* حجم كبير وفخم */
+        font-style: italic;
+        color: #ffffff;
+        margin: 0;
+        letter-spacing: -2px; /* تضييق الحروف لإعطاء طابع عصري */
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        white-space: nowrap; /* يمنع انقسام الكلمة على سطرين */
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards 0.2s; /* إضافة حركة ظهور سلسة للعنوان */
+    }
+
+    /* الخط الرفيع الممتد لنهاية الصفحة */
+    .edu-main-header::after {
+        content: "";
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        flex-grow: 1; /* الخط الذي يمتد تلقائياً */
+        margin-left: 20px; /* مسافة من نهاية الكلمة */
+    }
+
+    /* تحسين شكل النص التوضيحي */
+    .edu-intro-paragraph {
         color: #8e8ea8;
         font-size: 1.1rem;
         line-height: 1.8;
-        margin-bottom: 40px; /* مسافة واضحة قبل المربع */
-        text-align: left;
+        max-width: 600px;
+        margin-bottom: 50px;
+        margin-left: 5px;
+        opacity: 0;
+        animation: fadeInUp 1s forwards 0.4s;
     }
 
-    /* تصميم المربع (البطاقة) */
-    .edu-minimal-card {
-        width: 100%;
-        background: rgba(255, 255, 255, 0.01); /* خلفية شفافة جداً */
-        border: 1px solid rgba(157, 78, 221, 0.15); /* إطار بنفسجي خفيف */
-        padding: 40px;
-        position: relative;
-        transition: all 0.5s ease;
+    /* حركة الظهور للأعلى */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
-    /* تأثير عند تمرير الماوس على المربع */
-    .edu-minimal-card:hover {
-        border-color: #9d4edd;
-        background: rgba(157, 78, 221, 0.03);
-        transform: translateY(-5px);
-    }
-
-    /* الجزء العلوي داخل المربع (العنوان والتاغ) */
-    .card-top-flex {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .edu-minimal-card h4 {
-        font-size: 1.4rem;
-        color: #ffffff;
-        font-weight: 700;
-        margin: 0;
-    }
-
-    /* اسم الجامعة */
-    .edu-uni-name {
-        color: #9d4edd;
-        font-family: 'JetBrains Mono', monospace; /* خط تقني */
-        font-size: 0.9rem;
-        display: block;
-        margin-bottom: 20px;
-    }
-
-    /* وصف الدراسة داخل المربع */
-    .edu-card-desc {
-        color: #8e8ea8;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 25px;
-    }
-
-    /* الخط السفلي والتاريخ */
-    .card-bottom-line {
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 15px;
-    }
-
-    .edu-date-label {
-        color: #4a4a5e;
-        font-size: 0.8rem;
-        font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* التاغ البنفسجي الصغير */
-    .edu-badge-tag {
-        font-size: 0.65rem;
-        border: 1px solid #9d4edd;
-        color: #9d4edd;
-        padding: 3px 12px;
-        letter-spacing: 1px;
-        font-weight: 800;
-    }
-
-    /* تحسين الظهور على الجوال */
+    /* للهواتف: تصغير العنوان ليتناسب مع الشاشة */
     @media (max-width: 768px) {
-        .edu-minimal-card { padding: 25px; }
-        .card-top-flex { flex-direction: column; align-items: flex-start; gap: 10px; }
-        .edu-badge-tag { align-self: flex-start; }
+        .edu-main-header {
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+        }
     }
 </style>
 
-<section id="education" class="reveal">
-    <div class="section-tag">
-        <div class="tag-line"></div>
-        <div class="tag-text">02 . Academic Path</div>
+<section id="academic-path" class="reveal">
+    <div class="section-tag-row">
+        <span class="edu-section-num">02</span> <h2 class="edu-main-header">Academic Path</h2>
     </div>
-    
 
-    <div class="edu-single-column">
+    <p class="edu-intro-paragraph">
+        My academic journey in <b>Computer Science</b> has provided me with a strong foundation in problem-solving, algorithm design, and modern software development practices.
+    </p>
 
-        <div class="edu-minimal-card">
-            <div class="card-top-flex">
-                <h4>Bachelor of Computer Science</h4>
-                <span class="edu-badge-tag">EDUCATION</span>
-            </div>
-            
-            <span class="edu-uni-name">University of Tabuk</span>
-            
-            <p class="edu-card-desc">
-                Studied core computer science concepts including programming, data structures, databases, and software engineering fundamentals. Built academic and practical projects focused on real-world applications.
-            </p>
-            
-            <div class="card-bottom-line">
-                <span class="edu-date-label">2021 — 2026 (Expected)</span>
-            </div>
+    <div class="edu-minimal-card">
         </div>
-        
-    </div>
 </section>
-
 
         <section id="skills" class="reveal">
             <div class="sec-header">
