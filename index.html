@@ -115,15 +115,7 @@
         .cv-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-purple); margin-top: 10px; display: block; }
         .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 2px 8px; text-transform: uppercase; letter-spacing: 1px; }
 
- .cv-card-wrap{
-  margin: 10px 0;
-}
 
-.cv-container{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}       
         /* --- SKILLS GRID --- */
         .skills-container {
             display: grid;
@@ -233,6 +225,117 @@
                 </div>
             </div>
         </section>
+<style>
+    /* تنسيق خاص بقسم التعليم لضمان الترتيب العمودي */
+    .edu-card-wrap {
+        border: var(--border-neon-faint);
+        background: var(--bg-card-glass);
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    .edu-row {
+        padding: 40px;
+        display: flex;
+        flex-direction: column; /* ترتيب العناصر تحت بعض */
+        align-items: flex-start;
+        position: relative;
+        border-bottom: 1px solid rgba(157, 78, 221, 0.05);
+        transition: var(--transition-hq);
+    }
+
+    .edu-row:hover {
+        background: rgba(157, 78, 221, 0.02);
+    }
+
+    .edu-info {
+        width: 100%;
+    }
+
+    .edu-info h4 {
+        font-size: 1.5rem;
+        color: var(--text-pure);
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    .edu-university {
+        color: var(--accent-neon);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .edu-description {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        max-width: 90%;
+        text-align: justify; /* ليكون النص مرتباً */
+    }
+
+    .edu-date-span {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-deep-muted);
+        font-weight: 500;
+    }
+
+    .edu-status-tag {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        border: 1px solid var(--accent-neon);
+        color: var(--accent-neon);
+        padding: 4px 12px;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+        .edu-status-tag {
+            position: static;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .edu-row { padding: 30px; }
+    }
+</style>
+
+<section id="education" class="reveal">
+    <div class="section-tag">
+        <div class="tag-line"></div>
+        <div class="tag-text">Academic Path</div>
+    </div>
+    
+    <h2 class="section-heading">Education <span>History</span></h2>
+    
+    <div class="edu-card-wrap">
+        <div class="edu-row">
+            <span class="edu-status-tag">Education</span>
+            
+            <div class="edu-info">
+                <h4>Bachelor of Computer Science</h4>
+                <span class="edu-university">University of Tabuk</span>
+                
+                <p class="edu-description">
+                    Studied core computer science concepts including programming, data structures, databases, and software engineering fundamentals. Built academic and practical projects focused on real-world applications.
+                </p>
+                
+                <span class="edu-date-span">2021 — 2026 (Expected)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+        
+
 
 <div class="cv-card-wrap">
   <div class="cv-row">
