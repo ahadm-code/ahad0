@@ -226,82 +226,80 @@
             </div>
         </section>
 <style>
-    /* تنسيق خاص بقسم التعليم لضمان الترتيب العمودي */
-    .edu-card-wrap {
-        border: var(--border-neon-faint);
-        background: var(--bg-card-glass);
-        border-radius: 4px;
-        margin-top: 20px;
+    /* التنسيق لضمان ظهور الألوان والخطوط تحت بعض */
+    .edu-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* تقسيم الصفحة لنص يسار وبطاقة يمين */
+        gap: 40px;
+        margin-top: 40px;
+        align-items: start;
     }
 
-    .edu-row {
+    .edu-content-left {
+        max-width: 500px;
+    }
+
+    .edu-content-left p {
+        color: #8e8ea8; /* اللون الرمادي المعتمد */
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .edu-card-right {
+        background: rgba(17, 17, 25, 0.8); /* خلفية داكنة شفافة */
+        border: 1px solid rgba(157, 78, 221, 0.2); /* إطار بنفسجي خفيف */
         padding: 40px;
-        display: flex;
-        flex-direction: column; /* ترتيب العناصر تحت بعض */
-        align-items: flex-start;
+        border-radius: 4px;
         position: relative;
-        border-bottom: 1px solid rgba(157, 78, 221, 0.05);
-        transition: var(--transition-hq);
     }
 
-    .edu-row:hover {
-        background: rgba(157, 78, 221, 0.02);
-    }
-
-    .edu-info {
-        width: 100%;
-    }
-
-    .edu-info h4 {
-        font-size: 1.5rem;
-        color: var(--text-pure);
+    .edu-card-right h4 {
+        color: #ffffff;
+        font-size: 1.4rem;
         margin-bottom: 5px;
-        font-weight: 700;
     }
 
     .edu-university {
-        color: var(--accent-neon);
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        margin-bottom: 15px;
+        color: #9d4edd; /* اللون البنفسجي النيون */
+        font-family: monospace;
         display: block;
-    }
-
-    .edu-description {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.8;
         margin-bottom: 20px;
-        max-width: 90%;
-        text-align: justify; /* ليكون النص مرتباً */
     }
 
-    .edu-date-span {
-        font-family: var(--font-mono);
+    .edu-detail-text {
+        color: #8e8ea8;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    .edu-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        padding-top: 15px;
+    }
+
+    .edu-year {
+        color: #4a4a5e;
         font-size: 0.8rem;
-        color: var(--text-deep-muted);
-        font-weight: 500;
     }
 
-    .edu-status-tag {
-        position: absolute;
-        top: 40px;
-        right: 40px;
-        border: 1px solid var(--accent-neon);
-        color: var(--accent-neon);
-        padding: 4px 12px;
+    .edu-badge {
+        border: 1px solid #9d4edd;
+        color: #9d4edd;
+        padding: 2px 10px;
         font-size: 0.65rem;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
 
-    @media (max-width: 768px) {
-        .edu-status-tag {
-            position: static;
-            margin-bottom: 15px;
-            display: inline-block;
+    /* للجوال: تحويل العناصر لتصبح فوق بعض */
+    @media (max-width: 968px) {
+        .edu-container {
+            grid-template-columns: 1fr;
         }
-        .edu-row { padding: 30px; }
     }
 </style>
 
@@ -313,23 +311,31 @@
     
     <h2 class="section-heading">Education <span>History</span></h2>
     
-    <div class="edu-card-wrap">
-        <div class="edu-row">
-            <span class="edu-status-tag">Education</span>
-            
+    <div class="edu-container">
+        <div class="edu-content-left">
+            <p>
+                My academic journey in <b>Computer Science</b> has provided me with a strong foundation in problem-solving, algorithm design, and modern software development practices.
+            </p>
+        </div>
+
+        <div class="edu-card-right">
             <div class="edu-info">
                 <h4>Bachelor of Computer Science</h4>
                 <span class="edu-university">University of Tabuk</span>
                 
-                <p class="edu-description">
+                <p class="edu-detail-text">
                     Studied core computer science concepts including programming, data structures, databases, and software engineering fundamentals. Built academic and practical projects focused on real-world applications.
                 </p>
                 
-                <span class="edu-date-span">2021 — 2026 (Expected)</span>
+                <div class="edu-footer">
+                    <span class="edu-year">2021 — 2026 (Expected)</span>
+                    <span class="edu-badge">Education</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 
 
 
