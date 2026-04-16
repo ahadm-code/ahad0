@@ -18,7 +18,6 @@
             --font-accent: 'Playfair Display', serif;
         }
 
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: var(--bg-deep);
@@ -28,7 +27,6 @@
             line-height: 1.6;
         }
 
-        /* --- THE STARFIELD BACKGROUND --- */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -44,7 +42,6 @@
             z-index: 2;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -63,7 +60,6 @@
         .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
-        /* --- HERO --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -82,41 +78,56 @@
         .btn-o { border: 1px solid rgba(255,255,255,0.1); color: white; padding: 14px 35px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .btn-p:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(157, 78, 221, 0.4); }
 
-        /* --- SECTION BASE --- */
         section { padding: 120px 10%; max-width: 1400px; margin: 0 auto; }
         .sec-header { display: flex; align-items: center; gap: 15px; margin-bottom: 60px; }
         .sec-num { color: var(--accent-purple); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
         .sec-title { font-size: 3rem; font-family: var(--font-accent); font-weight: 400; }
         .sec-title span { font-style: italic; color: var(--text-dim); font-weight: 200; }
 
-        /* --- SPLIT GRID --- */
-        .split-grid {
+        /* --- UNIFIED GRID SYSTEM FOR ABOUT & EDUCATION --- */
+        .unified-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             gap: 60px;
+            align-items: start;
         }
         .bio-p { font-size: 1.2rem; color: var(--text-dim); line-height: 1.8; }
         .bio-p b { color: white; }
 
-        /* --- CV LIST CARDS --- */
-        .cv-card-wrap { border: var(--card-border); border-radius: 2px; }
+        .cv-card-wrap { border: var(--card-border); border-radius: 2px; background: rgba(255,255,255,0.01); transition: 0.4s; }
+        .cv-card-wrap:hover { background: rgba(157, 78, 221, 0.05); }
+        
         .cv-row {
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(157, 78, 221, 0.05);
-            transition: 0.4s;
-            background: rgba(255,255,255,0.01);
+            padding: 35px;
+            position: relative;
         }
-        .cv-row:hover { background: rgba(157, 78, 221, 0.05); padding-left: 40px; }
-        .cv-row h4 { font-size: 1.1rem; margin-bottom: 5px; }
-        .cv-row p { font-size: 0.8rem; color: var(--text-dim); }
-        .cv-date { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent-purple); margin-top: 10px; display: block; }
-        .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 2px 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .cv-row h4 { font-size: 1.2rem; margin-bottom: 5px; color: white; }
+        .cv-row p.sub-detail { font-size: 0.9rem; color: var(--accent-purple); font-family: 'JetBrains Mono', monospace; margin-bottom: 10px; }
+        .cv-row p.desc { font-size: 0.85rem; color: var(--text-dim); margin-top: 15px; }
+        .cv-date { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-dim); margin-top: 20px; display: block; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
+        .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 3px 10px; text-transform: uppercase; letter-spacing: 1px; position: absolute; top: 35px; right: 35px; }
 
+        /* --- ACADEMIC PATH SPECIFIC TITLES --- */
+        .edu-main-header {
+            font-family: var(--font-accent);
+            font-size: 4.5rem;
+            font-style: italic;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            white-space: nowrap;
+        }
+        .edu-main-header::after {
+            content: "";
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            flex-grow: 1;
+            margin-left: 20px;
+        }
 
-        /* --- SKILLS GRID --- */
         .skills-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -134,7 +145,6 @@
         .skill-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .skill-list li::before { content: "•"; color: var(--accent-purple); font-weight: bold; }
 
-        /* --- PROJECT YAQZA --- */
         .project-box { background: #111116; border: var(--card-border); padding: 50px; border-radius: 4px; }
         .p-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 40px; }
         .gallery-item { text-align: left; }
@@ -143,21 +153,20 @@
         .gallery-item h5 { color: var(--accent-purple); font-size: 1rem; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; }
         .gallery-item p { color: var(--text-dim); font-size: 0.85rem; line-height: 1.5; }
 
-        /* --- CONTACT --- */
         .contact-list { display: flex; flex-direction: column; border: var(--card-border); }
         .c-item { padding: 30px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: white; border-bottom: 1px solid rgba(157, 78, 221, 0.05); transition: 0.4s; }
         .c-item:hover { background: rgba(157, 78, 221, 0.05); padding-left: 40px; }
-        .c-label { font-size: 0.7rem; color: #555; text-transform: uppercase; margin-bottom: 5px; }
+        .label { font-size: 0.7rem; color: #555; text-transform: uppercase; margin-bottom: 5px; }
 
-        /* --- ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         footer { padding: 50px 10%; text-align: left; border-top: 1px solid rgba(255,255,255,0.02); color: #333; font-size: 0.7rem; letter-spacing: 3px; }
 
         @media (max-width: 968px) {
-            .split-grid, .skills-container { grid-template-columns: 1fr; gap: 40px; }
+            .unified-grid, .skills-container { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 3rem; }
+            .edu-main-header { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -170,7 +179,7 @@
             <a href="#" class="logo">AM </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#Academic Path">Academic Path</a></li>
+                <li><a href="#academic-path">Academic Path</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#Project">Project</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -192,123 +201,47 @@
                 <span class="sec-num">01</span>
                 <h2 class="sec-title">About <span>Me</span></h2>
             </div>
-            <div class="split-grid">
+            <div class="unified-grid">
                 <div class="bio-p">
-<p>
-  I am a <b>Computer Science professional</b> based in Tabuk, working in <b>Infrastructure</b> and <b>Data Systems</b>.
-</p>
-<br>
-<p>
-  I focus on designing and building <b>secure</b>, <b>scalable</b>, and <b>intelligent</b> technological solutions that address real-world safety and system challenges.
-</p>
-<br>
-<p>
-  Passionate about turning complex problems into reliable, efficient, and high-performance digital systems.
-</p>
+                    <p>I am a <b>Computer Science professional</b> based in Tabuk, working in <b>Infrastructure</b> and <b>Data Systems</b>.</p>
+                    <br>
+                    <p>I focus on designing and building <b>secure</b>, <b>scalable</b>, and <b>intelligent</b> technological solutions that address real-world safety and system challenges.</p>
+                    <br>
+                    <p>Passionate about turning complex problems into reliable, efficient, and high-performance digital systems.</p>
                 </div>
                 <div class="cv-card-wrap">
                     <div class="cv-row">
-                        <div class="cv-info">
-<h4>IT Training Intern</h4>
-<p>Saudi Electricity Company</p>
-<span class="cv-date">Sep 2025 - Nov 2025</span>
-
-<p>
-  Completed an IT training program in a large enterprise environment, gaining hands-on experience in IT infrastructure, system operations, and technical support.
-</p>
-
-<p>
-  Supported daily technical tasks, improved system reliability awareness, and strengthened problem-solving and teamwork skills.
-</p>
-                        </div>
+                        <h4>IT Training Intern</h4>
+                        <p class="sub-detail">Saudi Electricity Company</p>
+                        <p class="desc">Completed an IT training program in a large enterprise environment, gaining hands-on experience in IT infrastructure, system operations, and technical support.</p>
                         <span class="cv-tag">Internship</span>
+                        <span class="cv-date">Sep 2025 - Nov 2025</span>
                     </div>
                 </div>
             </div>
         </section>
-<style>
-    /* التنسيق للعنوان الكبير والرقم (لجزء Academic Path فقط) */
-    .section-tag-row {
-        display: flex;
-        align-items: center;
-        gap: 15px; /* المسافة بين الرقم والعنوان */
-        margin-bottom: 25px; /* مسافة قبل النص التوضيحي */
-    }
 
-    .edu-section-num {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 0.8rem;
-        color: #9d4edd; /* اللون البنفسجي */
-        font-weight: 700;
-        opacity: 0.8;
-        display: block;
-        margin-bottom: 5px; /* رفع بسيط للرقم ليتوازى مع النص */
-    }
-
-    .edu-main-header {
-        font-family: 'Playfair Display', serif; /* الخط السيريف المميز */
-        font-size: 4.5rem; /* حجم كبير وفخم */
-        font-style: italic;
-        color: #ffffff;
-        margin: 0;
-        letter-spacing: -2px; /* تضييق الحروف لإعطاء طابع عصري */
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        white-space: nowrap; /* يمنع انقسام الكلمة على سطرين */
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s forwards 0.2s; /* إضافة حركة ظهور سلسة للعنوان */
-    }
-
-    /* الخط الرفيع الممتد لنهاية الصفحة */
-    .edu-main-header::after {
-        content: "";
-        height: 1px;
-        background: rgba(255, 255, 255, 0.1);
-        flex-grow: 1; /* الخط الذي يمتد تلقائياً */
-        margin-left: 20px; /* مسافة من نهاية الكلمة */
-    }
-
-    /* تحسين شكل النص التوضيحي */
-    .edu-intro-paragraph {
-        color: #8e8ea8;
-        font-size: 1.1rem;
-        line-height: 1.8;
-        max-width: 600px;
-        margin-bottom: 50px;
-        margin-left: 5px;
-        opacity: 0;
-        animation: fadeInUp 1s forwards 0.4s;
-    }
-
-    /* حركة الظهور للأعلى */
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* للهواتف: تصغير العنوان ليتناسب مع الشاشة */
-    @media (max-width: 768px) {
-        .edu-main-header {
-            font-size: 2.5rem;
-            letter-spacing: -1px;
-        }
-    }
-</style>
-
-<section id="academic-path" class="reveal">
-    <div class="section-tag-row">
-        <span class="edu-section-num">02</span> <h2 class="edu-main-header">Academic Path</h2>
-    </div>
-
-    <p class="edu-intro-paragraph">
-        My academic journey in <b>Computer Science</b> has provided me with a strong foundation in problem-solving, algorithm design, and modern software development practices.
-    </p>
-
-    <div class="edu-minimal-card">
-        </div>
-</section>
+        <section id="academic-path" class="reveal">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 40px;">
+                <span class="sec-num">02</span>
+                <h2 class="edu-main-header">Academic Path</h2>
+            </div>
+            
+            <div class="unified-grid">
+                <div class="bio-p">
+                    <p>My academic journey in <b>Computer Science</b> has provided me with a strong foundation in problem-solving, algorithm design, and modern software development practices.</p>
+                </div>
+                <div class="cv-card-wrap">
+                    <div class="cv-row">
+                        <h4>Bachelor of Computer Science</h4>
+                        <p class="sub-detail">University of Tabuk</p>
+                        <p class="desc">Studied core computer science concepts including programming, data structures, databases, and software engineering fundamentals. Built academic and practical projects focused on real-world applications.</p>
+                        <span class="cv-tag">Education</span>
+                        <span class="cv-date">2021 — 2026 (Expected)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="skills" class="reveal">
             <div class="sec-header">
@@ -345,7 +278,7 @@
             </div>
             <div class="project-box">
                 <div class="bio-p">
-                    <p>YAQZA  is an AI-driven security ecosystem designed to enhance public safety by providing real-time geographical risk analysis.</p>
+                    <p>YAQZA is an AI-driven security ecosystem designed to enhance public safety by providing real-time geographical risk analysis.</p>
                 </div>
                 <div class="p-gallery">
                     <div class="gallery-item">
@@ -374,7 +307,7 @@
 
         <section id="contact" class="reveal">
             <div class="sec-header">
-                <span class="sec-num">04</span>
+                <span class="sec-num">05</span>
                 <h2 class="sec-title">Connect <span>With Me</span></h2>
             </div>
             <div class="split-grid">
