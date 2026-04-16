@@ -150,16 +150,16 @@
         .skill-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .skill-list li::before { content: "•"; color: var(--accent-purple); }
 
-        /* --- تعديل شبكة المشاريع (صورتين صورتين) --- */
         .project-box { background: #111116; border: var(--card-border); padding: 50px; border-radius: 4px; }
         .p-gallery { 
             display: grid; 
-            grid-template-columns: 1fr 1fr; /* صورتين في الصف */
+            grid-template-columns: 1fr 1fr;
             gap: 30px; 
             margin-top: 40px; 
         }
         .gallery-item img { width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; margin-bottom: 15px; }
         .gallery-item img:hover { transform: translateY(-10px); border-color: var(--accent-purple); }
+        .gallery-item p { font-size: 0.8rem; color: var(--text-dim); margin-top: 5px; line-height: 1.4; }
 
         .contact-list { border: var(--card-border); border-radius: 4px; overflow: hidden; }
         .c-item { padding: 30px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: white; border-bottom: 1px solid rgba(157, 78, 221, 0.05); transition: 0.4s; }
@@ -264,24 +264,36 @@
         </section>
 
         <section id="Project" class="reveal">
-            <div class="sec-header"><span class="sec-num">03</span><h2 class="sec-title">Project <span>YAQZA</span></h2></div>
+            <div class="sec-header">
+                <span class="sec-num">03</span>
+                <h2 class="sec-title">Project <br> <span>YAQZA</span></h2>
+            </div>
+            
             <div class="project-box">
+                <div class="bio-p" style="margin-bottom: 40px; border-left: 2px solid var(--accent-purple); padding-left: 20px;">
+                    <p><b>YAQZA</b> is a comprehensive safety management system designed to empower communities through real-time data and interactive reporting. It bridges the gap between citizens and safety protocols using advanced mapping and instant notification systems.</p>
+                </div>
+
                 <div class="p-gallery">
                     <div class="gallery-item">
                         <img src="yaqza-map.png" alt="Safety Map">
                         <h5 style="color:var(--accent-purple)">Interactive Safety Map</h5>
+                        <p>A visual representation of urban safety levels, allowing users to identify secure zones and potential risks in real-time.</p>
                     </div>
                     <div class="gallery-item">
                         <img src="yaqza-posts.png" alt="Feed">
                         <h5 style="color:var(--accent-purple)">Community Reporting Feed</h5>
+                        <p>A transparent platform for residents to post and verify local safety updates, fostering a collective sense of security.</p>
                     </div>
                     <div class="gallery-item">
                         <img src="yaqza-alerts.png" alt="Alerts">
                         <h5 style="color:var(--accent-purple)">Smart Risk Alerts</h5>
+                        <p>Intelligent notification system that broadcasts urgent safety warnings based on the user's current geographical location.</p>
                     </div>
                     <div class="gallery-item">
                         <img src="yaqza-emergency.png" alt="Emergency">
                         <h5 style="color:var(--accent-purple)">Emergency Systems</h5>
+                        <p>Integrated rapid-response interface providing immediate access to critical services and verified emergency contacts.</p>
                     </div>
                 </div>
             </div>
