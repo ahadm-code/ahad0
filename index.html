@@ -18,7 +18,6 @@
             --font-accent: 'Playfair Display', serif;
         }
 
-        /* الإعدادات العامة والتنقل السلس */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             background-color: var(--bg-deep);
@@ -28,7 +27,6 @@
             line-height: 1.6;
         }
 
-        /* خلفية النجوم المتحركة */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -41,7 +39,7 @@
 
         .main-content { position: relative; z-index: 2; }
 
-        /* --- القائمة العلوية --- */
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -60,7 +58,7 @@
         .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px; }
         .nav-links a:hover { color: white; }
 
-        /* --- الصفحة الرئيسية --- */
+        /* --- HERO --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -69,10 +67,10 @@
             align-items: center;
             text-align: center;
         }
-        .hero-tag { font-family: var(--font-accent); font-style: italic; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .hero-tag { font-family: var(--font-accent); font-style: italic; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 0.5rem; opacity: 0.8; }
         .hero h1 { font-size: clamp(3.5rem, 10vw, 6.5rem); font-weight: 800; margin-bottom: 10px; letter-spacing: -2px; }
         
-        /* حاوية تأثير الكتابة */
+        /* تأثير الكتابة للمدينة */
         .typing-container {
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent-purple);
@@ -90,7 +88,7 @@
         .btn-o { border: 1px solid rgba(255,255,255,0.1); color: white; padding: 15px 40px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; transition: 0.4s; }
         .btn-p:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(157, 78, 221, 0.3); }
 
-        /* --- الأقسام --- */
+        /* --- SECTIONS --- */
         section { padding: 120px 10%; max-width: 1400px; margin: 0 auto; }
         .sec-header { display: flex; align-items: center; gap: 15px; margin-bottom: 60px; }
         .sec-num { color: var(--accent-purple); font-family: 'JetBrains Mono'; font-size: 0.9rem; }
@@ -101,7 +99,7 @@
         .bio-p { font-size: 1.15rem; color: var(--text-dim); line-height: 1.9; }
         .bio-p b { color: white; }
 
-        /* --- المربعات المدمجة في اليمين --- */
+        /* --- CV STACK (Stacked Cards) --- */
         .cv-stack { display: flex; flex-direction: column; }
         .cv-card-wrap { border: var(--card-border); background: rgba(255,255,255,0.01); transition: 0.4s; position: relative; }
         .cv-card-wrap:first-child { border-radius: 4px 4px 0 0; }
@@ -114,7 +112,7 @@
         .cv-date { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--text-dim); margin-top: 15px; display: block; opacity: 0.6; }
         .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 2px 8px; text-transform: uppercase; position: absolute; top: 35px; right: 35px; }
 
-        /* --- قسم المهارات --- */
+        /* --- SKILLS --- */
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .skill-box { background: rgba(157, 78, 221, 0.03); border: var(--card-border); padding: 40px; border-radius: 4px; }
         .skill-box h3 { font-family: var(--font-accent); font-style: italic; margin-bottom: 20px; font-weight: 400; font-size: 1.5rem; }
@@ -122,7 +120,7 @@
         .skill-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
         .skill-list li::before { content: "•"; color: var(--accent-purple); font-weight: bold; }
 
-        /* --- قسم المشاريع --- */
+        /* --- PROJECTS --- */
         .project-box { background: #111116; border: var(--card-border); padding: 50px; border-radius: 4px; }
         .p-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
         .gallery-item img { width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; margin-bottom: 15px; }
@@ -130,20 +128,19 @@
         .gallery-item h5 { color: var(--accent-purple); margin-bottom: 5px; font-size: 1rem; }
         .gallery-item p { font-size: 0.8rem; color: var(--text-dim); }
 
-        /* --- قسم التواصل --- */
+        /* --- CONTACT --- */
         .contact-list { border: var(--card-border); border-radius: 4px; overflow: hidden; }
         .c-item { padding: 30px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: white; border-bottom: 1px solid rgba(157, 78, 221, 0.05); transition: 0.4s; }
         .c-item:last-child { border-bottom: none; }
         .c-item:hover { background: rgba(157, 78, 221, 0.08); padding-left: 40px; }
         .c-item i { color: var(--accent-purple); transition: 0.3s; }
 
-        /* --- تأثيرات الظهور عند السكرول --- */
+        /* --- REVEAL ON SCROLL --- */
         .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         footer { padding: 60px 10%; border-top: 1px solid rgba(255,255,255,0.02); color: #333; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; }
 
-        /* استجابة الشاشات الصغيرة */
         @media (max-width: 968px) {
             .split-grid, .skills-container { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3.5rem; }
@@ -282,7 +279,7 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // إعداد النجوم
+        // Particles Background
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 150, "density": { "enable": true, "value_area": 800 } },
@@ -296,7 +293,7 @@
             "retina_detect": true
         });
 
-        // تأثير الكتابة لمدينة تبوك
+        // Typing Effect for Tabuk, Saudi Arabia
         const text = "Tabuk, Saudi Arabia";
         let index = 0;
         function typeEffect() {
@@ -308,7 +305,7 @@
         }
         window.onload = typeEffect;
 
-        // تأثير الظهور التدريجي عند النزول
+        // Reveal Animation on Scroll
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
