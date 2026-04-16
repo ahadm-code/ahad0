@@ -18,7 +18,6 @@
             --font-accent: 'Playfair Display', serif;
         }
 
-        /* الأساسيات والتنقل السلس */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             background-color: var(--bg-deep);
@@ -28,7 +27,6 @@
             line-height: 1.6;
         }
 
-        /* خلفية النجوم المتحركة */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -41,7 +39,6 @@
 
         .main-content { position: relative; z-index: 2; }
 
-        /* --- القائمة العلوية --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -60,7 +57,6 @@
         .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
-        /* --- الواجهة الرئيسية (Hero) --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -70,7 +66,6 @@
             text-align: center;
         }
         
-        /* تأثير Welcome */
         .hero-tag { 
             font-family: var(--font-accent); 
             font-style: italic; 
@@ -84,7 +79,6 @@
             50% { opacity: 1; transform: translateY(-5px); }
         }
 
-        /* تنسيق اسم عهد */
         .hero h1 { 
             font-family: var(--font-accent);
             font-size: clamp(3.5rem, 10vw, 6.5rem); 
@@ -103,7 +97,6 @@
             margin-bottom: 3rem;
         }
 
-        /* تأثير الكتابة لتبوك */
         .typing-container {
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent-purple);
@@ -128,7 +121,6 @@
         .btn-o { border: 1px solid rgba(255,255,255,0.1); color: white; padding: 15px 40px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; transition: 0.4s; }
         .btn-p:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(157, 78, 221, 0.2); }
 
-        /* --- الأقسام العامة --- */
         section { padding: 120px 10%; max-width: 1400px; margin: 0 auto; }
         .sec-header { display: flex; align-items: center; gap: 15px; margin-bottom: 60px; }
         .sec-num { color: var(--accent-purple); font-family: 'JetBrains Mono'; font-size: 0.9rem; }
@@ -139,7 +131,6 @@
         .bio-p { font-size: 1.15rem; color: var(--text-dim); line-height: 1.9; }
         .bio-p b { color: white; }
 
-        /* --- مربعات التعليم والخبرة الملاصقة --- */
         .cv-stack { display: flex; flex-direction: column; }
         .cv-card-wrap { border: var(--card-border); background: rgba(255,255,255,0.01); transition: 0.4s; position: relative; }
         .cv-card-wrap:first-child { border-radius: 4px 4px 0 0; }
@@ -152,7 +143,6 @@
         .cv-date { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--text-dim); margin-top: 15px; display: block; opacity: 0.6; }
         .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 2px 8px; text-transform: uppercase; position: absolute; top: 35px; right: 35px; }
 
-        /* --- مهارات --- */
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .skill-box { background: rgba(157, 78, 221, 0.03); border: var(--card-border); padding: 40px; border-radius: 4px; }
         .skill-box h3 { font-family: var(--font-accent); font-style: italic; margin-bottom: 20px; font-weight: 400; }
@@ -160,21 +150,18 @@
         .skill-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .skill-list li::before { content: "•"; color: var(--accent-purple); }
 
-        /* --- مشاريع --- */
         .project-box { background: #111116; border: var(--card-border); padding: 50px; border-radius: 4px; }
-        .p-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .p-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px; }
         .gallery-item img { width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; margin-bottom: 15px; }
         .gallery-item img:hover { transform: translateY(-10px); border-color: var(--accent-purple); }
 
-        /* --- التواصل (نسخة عهد النظيفة) --- */
-        .contact-wrapper { width: 100%; max-width: 600px; margin-left: auto; }
+        .contact-wrapper { width: 100%; }
         .contact-list { border: var(--card-border); border-radius: 4px; overflow: hidden; }
         .c-item { padding: 30px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: white; border-bottom: 1px solid rgba(157, 78, 221, 0.05); transition: 0.4s; }
         .c-item:last-child { border-bottom: none; }
         .c-item:hover { background: rgba(157, 78, 221, 0.08); padding-left: 45px; }
         .c-item i { color: var(--accent-purple); }
 
-        /* تأثير الظهور عند السكرول */
         .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -217,17 +204,13 @@
         </header>
 
         <section id="about" class="reveal">
-            <div class="sec-header">
-                <span class="sec-num">01</span>
-                <h2 class="sec-title">About <span>Me</span></h2>
-            </div>
+            <div class="sec-header"><span class="sec-num">01</span><h2 class="sec-title">About <span>Me</span></h2></div>
             <div class="split-grid">
                 <div class="bio-p">
                     <p>I am a <b>Computer Science professional</b> based in Tabuk, working in <b>Infrastructure</b> and <b>Data Systems</b>.</p><br>
                     <p>I focus on designing and building <b>secure</b>, <b>scalable</b>, and <b>intelligent</b> technological solutions that address real-world challenges.</p><br>
                     <p>Passionate about turning complex problems into reliable, efficient digital systems that define the future of safety.</p>
                 </div>
-
                 <div class="cv-stack">
                     <div class="cv-card-wrap">
                         <div class="cv-row">
@@ -282,12 +265,18 @@
                     <div class="gallery-item">
                         <img src="yaqza-map.png" alt="Safety Map">
                         <h5 style="color:var(--accent-purple)">Interactive Safety Map</h5>
-                        <p style="font-size:0.8rem; color:var(--text-dim)">Real-time visual representation of urban safety levels.</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="yaqza-posts.png" alt="Community Feed">
+                        <img src="yaqza-posts.png" alt="Feed">
                         <h5 style="color:var(--accent-purple)">Community Reporting Feed</h5>
-                        <p style="font-size:0.8rem; color:var(--text-dim)">Transparent platform for verified local safety updates.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="yaqza-alerts.png" alt="Alerts">
+                        <h5 style="color:var(--accent-purple)">Smart Risk Alerts</h5>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="yaqza-dash.png" alt="Dashboard">
+                        <h5 style="color:var(--accent-purple)">Admin Dashboard</h5>
                     </div>
                 </div>
             </div>
@@ -295,15 +284,23 @@
 
         <section id="contact" class="reveal">
             <div class="sec-header"><span class="sec-num">04</span><h2 class="sec-title">Connect <span>With Me</span></h2></div>
-            <div class="contact-wrapper">
+            <div class="split-grid">
+                <div class="bio-p">
+                    <h3 style="font-size: 3rem; line-height: 1.1; color: white;">Let's talk <i>tech</i>.</h3>
+                    <p style="margin-top: 20px;">Open to new opportunities in technology and software development. Feel free to reach out via email, phone, or LinkedIn.</p>
+                </div>
                 <div class="contact-list">
                     <a href="mailto:ahad.matlaq@gmail.com" class="c-item">
                         <div><p style="font-size: 0.65rem; color: #555; margin-bottom: 5px;">EMAIL</p><p>ahad.matlaq@gmail.com</p></div>
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+966553914401" class="c-item">
+                        <div><p style="font-size: 0.65rem; color: #555; margin-bottom: 5px;">PHONE / WHATSAPP</p><p>+966 553 914 401</p></div>
+                        <i class="fas fa-phone"></i>
                     </a>
                     <a href="https://linkedin.com/in/ahad-matlaq-901b6530a" target="_blank" class="c-item">
                         <div><p style="font-size: 0.65rem; color: #555; margin-bottom: 5px;">LINKEDIN</p><p>Ahad Matlaq</p></div>
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
             </div>
@@ -314,7 +311,6 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // تشغيل النجوم
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 150 },
@@ -326,7 +322,6 @@
             }
         });
 
-        // تأثير الكتابة لتبوك
         const text = "Tabuk, Saudi Arabia";
         let index = 0;
         function typeEffect() {
@@ -338,7 +333,6 @@
         }
         window.onload = typeEffect;
 
-        // تأثير الظهور التدريجي
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
