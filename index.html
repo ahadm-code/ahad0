@@ -138,10 +138,20 @@
         .cv-card-wrap:hover { background: rgba(157, 78, 221, 0.05); }
 
         .cv-row { padding: 35px; }
-        .cv-row h4 { font-size: 1.1rem; color: white; margin-bottom: 5px; display: flex; align-items: center; gap: 20px; }
+.cv-row h4 { font-size: 1.1rem; color: white; margin-bottom: 5px; padding-right: 80px; } 
         .sub-h { color: var(--accent-purple); font-family: 'JetBrains Mono'; font-size: 0.85rem; display: block; margin-bottom: 12px; }
         .cv-date { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--text-dim); margin-top: 15px; display: block; opacity: 0.6; }
-        .cv-tag { font-size: 0.6rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 2px 8px; text-transform: uppercase; position: relative; }
+.cv-tag { 
+    font-size: 0.6rem; 
+    border: 1px solid var(--accent-purple); 
+    color: var(--accent-purple); 
+    padding: 2px 8px; 
+    text-transform: uppercase; 
+    position: absolute; 
+    top: 20px;     /* قللنا المسافة من فوق عشان تطلع أرتب */
+    right: 15px;   /* هذا يخليها أبعد لليمين ومستحيل تلمس الكلام */
+}
+
 
 
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
